@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMNTDataSourceDelegate.h"
 
-@interface TMNTViewController : UIViewController 
+@interface TMNTViewController : UIViewController <TMNTDataSourceDelegate>
 
 @end

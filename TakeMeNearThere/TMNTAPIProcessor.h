@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "TMNTLocation.h"
 #import <YelpKit/YelpKit.h>
+#import "TMNTDataSourceDelegate.h"
+
 
 @interface TMNTAPIProcessor : NSObject
 
 @property (strong, nonatomic) NSArray *flickrPhotosArray;
 @property (strong, nonatomic) NSString *stringAPICall;
 @property (strong, nonatomic) NSArray *yelpBusinessesArray;
+@property (strong, nonatomic) id <TMNTDataSourceDelegate> delegate;
 
 
 - (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(TMNTLocation*)userLocation;

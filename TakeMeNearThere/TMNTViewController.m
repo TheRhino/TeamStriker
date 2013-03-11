@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-
+    
     //test that tmntlocation works
 //    TMNTLocation *userLocation = [[TMNTLocation alloc] init];
 //    NSLog(@"%f",userLocation.location.longitude);
@@ -31,13 +31,21 @@
 //    [flickrProcess getFlickrJSON];
 //    NSLog(@"this is the %@", [flickrProcess flickrPhotosArray]);
 
+    yelpProcess.delegate = self;
+    
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"food" andLocation:location];
     
-
-    NSLog(@"I AM THE VIEW START PROCESS");
+    
     [yelpProcess getYelpJSON];
-    NSLog(@"I AM THE VIEW END PROCESS");
+    
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)grabArray:(NSArray *)data
+{
+    
+    NSLog(@"%@", data);
+
 }
 
 

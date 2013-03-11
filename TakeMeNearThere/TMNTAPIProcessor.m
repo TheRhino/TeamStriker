@@ -9,7 +9,6 @@
 #import "TMNTAPIProcessor.h"
 #import <YelpKit/YelpKit.h>
 
-
 @implementation TMNTAPIProcessor
 
 @synthesize stringAPICall,flickrPhotosArray,yelpBusinessesArray;
@@ -42,25 +41,27 @@
                            completionHandler:^ void (NSURLResponse* myResponse, NSData* myData, NSError* theirError)
      {
          [self setArrayOfDictsFromFlickrJSONWithResponse:myResponse andData:myData andError:theirError];
+         [self.delegate grabArray:flickrPhotosArray];
+         
      }];
 }
 
 - (void)setArrayOfDictsFromFlickrJSONWithResponse:(NSURLResponse*)myResponse andData:(NSData*)myData andError:(NSError*)theirError
 {
-  
-         if (theirError)
-         {
-             NSLog(@"%@", [theirError description]);
-         }
-         else
-         {
-             NSError *jsonError;
-             NSDictionary *myJSONDictionary = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:myData
-                                                                                              options:NSJSONReadingAllowFragments
-                                                                                                error:&jsonError];
-             
-             flickrPhotosArray = [[myJSONDictionary valueForKey:@"photos"] valueForKey:@"photo"];
-         }
+    
+    if (theirError)
+    {
+        NSLog(@"Flickr Error: %@", [theirError description]);
+    }
+    else
+    {
+        NSError *jsonError;
+        NSDictionary *myJSONDictionary = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:myData
+                                                                                         options:NSJSONReadingAllowFragments
+                                                                                           error:&jsonError];
+        
+        flickrPhotosArray = [[myJSONDictionary valueForKey:@"photos"] valueForKey:@"photo"];
+    }
 }
 
 - (void)getYelpJSON
@@ -68,25 +69,24 @@
     YKURL *yelpURL = [YKURL URLString:stringAPICall];
     [YKJSONRequest requestWithURL:yelpURL
                       finishBlock:^ void (id myData)
-                          {
-                              NSLog(@"Using Yelp Data!!!");
-                              [self setUpYelpVenuesWithData:myData];
-
-                          }
+     {
+         [self setUpYelpVenuesWithData:myData];
+         [self.delegate grabArray:flickrPhotosArray];
+         
+     }
                         failBlock:^ void (YKHTTPError *error)
-                          {
-                              if (error)
-                              {
-                                  NSLog(@"YELP ERROR HEHEHE: %@", [error description]);
-                              }
-                          }];
-
+     {
+         if (error)
+         {
+             NSLog(@"Error using Yelp: %@", [error description]);
+         }
+     }];
+    
 }
 -(void) setUpYelpVenuesWithData: (id)data
 {
     NSDictionary *myYelpVenues = (NSDictionary *)data;
     yelpBusinessesArray = [myYelpVenues valueForKey:@"businesses"];
     //   NSDictionary *myYelpIndividualVenueDictionary = [myYelpBusinesses va]
-    NSLog(@"I am the end of the yelp array builder");
 }
 @end

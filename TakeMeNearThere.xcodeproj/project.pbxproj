@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
+		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
 		8FBF3B8816EE94E500308CBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8716EE94E500308CBD /* UIKit.framework */; };
 		8FBF3B8A16EE94E500308CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8916EE94E500308CBD /* Foundation.framework */; };
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
@@ -50,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDataSourceDelegate.h; sourceTree = "<group>"; };
+		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
+		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
+		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF3B8716EE94E500308CBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FBF3B8916EE94E500308CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */,
 				8FBF3BBC16EE96C300308CBD /* libYelpKit.a in Frameworks */,
 				8FBF3BBB16EE96B200308CBD /* QuartzCore.framework in Frameworks */,
 				8FBF3BB716EE96A400308CBD /* MapKit.framework in Frameworks */,
@@ -114,6 +121,7 @@
 		8FBF3B8616EE94E500308CBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D3C660516EE9EE900956EF2 /* CoreLocation.framework */,
 				8FBF3BBA16EE96B200308CBD /* QuartzCore.framework */,
 				8FBF3BB816EE96A900308CBD /* CoreData.framework */,
 				8FBF3BB616EE96A400308CBD /* MapKit.framework */,
@@ -127,6 +135,9 @@
 		8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */ = {
 			isa = PBXGroup;
 			children = (
+				1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */,
+				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
+				1D3C660316EE9CB100956EF2 /* TMNTPlace.m */,
 				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
 				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
 				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
@@ -260,6 +271,7 @@
 				8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */,
 				8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */,
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
+				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
