@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSMutableArray *returnedArray;
 
+
 -(void)addPinsToMap;
 
 @end
@@ -29,7 +30,7 @@
  
  5. import annotation.h to vc.m
  6. make new method in vc (addPinsToMap)
- 7. import coreloaction framework to vc.m
+ 7. import coreloaction framework to vc.m --Shouldnt matter didnt do again
  8. gave returnedArray class scope instead of just method local scope
  9. added custom init to annotation class
  10. added stuff to addpins method
