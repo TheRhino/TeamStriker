@@ -25,6 +25,7 @@
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC216EE976900308CBD /* TMNTLocation.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
+		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		8FBF3BC216EE976900308CBD /* TMNTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTLocation.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
+		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
+		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
 				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
+				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
+				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
 				8FBF3B8E16EE94E500308CBD /* Supporting Files */,
 			);
 			path = TakeMeNearThere;
@@ -272,6 +277,7 @@
 				8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */,
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
+				D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
