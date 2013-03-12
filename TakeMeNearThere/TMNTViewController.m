@@ -26,30 +26,18 @@
 {
     [super viewDidLoad];
     
-    
-    //test that tmntlocation works
-//    TMNTLocation *userLocation = [[TMNTLocation alloc] init];
-//    NSLog(@"%f",userLocation.location.longitude);
-    TMNTLocation *location = [[TMNTLocation alloc] init];
-//    TMNTAPIProcessor *flickrProcess = [[TMNTAPIProcessor sharedInstance]initWithFlickrSearch:@"hamburger" andLocation:location];
-//    [flickrProcess getFlickrJSON];
-//    NSLog(@"this is the %@", [flickrProcess flickrPhotosArray]);
+    TMNTLocation *mobileMakersLocation = [[TMNTLocation alloc] init];
 
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"food" andLocation:mobileMakersLocation];
     
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"food" andLocation:location];
     yelpProcess.delegate = self;
 
-    
     [yelpProcess getYelpJSON];
-    
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)grabArray:(NSArray *)data
 {
     yelpData = [self createPlacesArray:data];
-    NSLog(@"%@", yelpData);
 }
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
