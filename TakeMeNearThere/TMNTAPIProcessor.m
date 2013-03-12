@@ -71,7 +71,7 @@
                       finishBlock:^ void (id myData)
      {
          [self setUpYelpVenuesWithData:myData];
-         [self.delegate grabArray:flickrPhotosArray];
+         [self.delegate grabArray:yelpBusinessesArray];
          
      }
                         failBlock:^ void (YKHTTPError *error)
@@ -87,6 +87,5 @@
 {
     NSDictionary *myYelpVenues = (NSDictionary *)data;
     yelpBusinessesArray = [myYelpVenues valueForKey:@"businesses"];
-    //   NSDictionary *myYelpIndividualVenueDictionary = [myYelpBusinesses va]
 }
 @end

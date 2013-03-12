@@ -11,9 +11,10 @@
 #import "TMNTDataSourceDelegate.h"
 #import "TMNTLocation.h"
 
-@interface TMNTPlace : NSObject <TMNTDataSourceDelegate>
+@interface TMNTPlace : NSObject
 
-@property (strong, nonatomic) TMNTLocation *location;
+@property (strong, nonatomic) CLLocation *location;
 @property (strong, nonatomic) NSString *name;
+
 
 @end
