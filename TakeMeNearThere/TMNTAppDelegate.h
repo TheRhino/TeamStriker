@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface TMNTAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSManagedObjectModel *managedObjectModel;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    NSManagedObjectContext *managedObjectContext;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

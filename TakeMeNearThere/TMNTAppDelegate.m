@@ -10,9 +10,22 @@
 
 @implementation TMNTAppDelegate
 
+@synthesize managedObjectContext = managedObjectContext;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
+    NSURL *sqliteURL = [documentsDirectory URLByAppendingPathComponent:@"Model.sqlite"];
+    NSError *error;
+    managedObjectModel = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+    if ([persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:nil error:&error])
+    {
+        managedObjectContext = [[NSManagedObjectContext alloc]init];
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator;
+    }
     return YES;
 }
 							

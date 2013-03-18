@@ -13,7 +13,7 @@
 
 @interface TMNTPlace : NSObject
 
-@property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) TMNTLocation *location;
 @property (strong, nonatomic) NSString *name;
 
 

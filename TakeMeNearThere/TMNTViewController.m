@@ -13,9 +13,11 @@
 #import <MapKit/MapKit.h>
 #import "TMNTAnnotation.h"
 #import <CoreLocation/CoreLocation.h>
+#import "TMNTAppDelegate.h"
+#import "YelpClick.h"
 
 
-@interface TMNTViewController ()
+@interface TMNTViewController ()<MKMapViewDelegate>
 {
     TMNTAPIProcessor *yelpProcess;
     __weak IBOutlet MKMapView *myMapView;
@@ -25,7 +27,9 @@
 @end
 
 @implementation TMNTViewController
+
 @synthesize returnedArray;
+@synthesize myManagedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -34,6 +38,8 @@
     mobileMakersLocation = [[TMNTLocation alloc] init];
 
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"food" andLocation:mobileMakersLocation];
+    
+    TMNTLocation* newLocation = [[TMNTLocation alloc] initWithCurrentLocationAndUpdates];
     
     yelpProcess.delegate = self;
 
@@ -54,7 +60,7 @@
     {
         float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
         float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
-        CLLocation *placeLocation = [[CLLocation alloc] initWithLatitude:placeLatitude longitude:placeLongitude];
+        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
         
         TMNTPlace *place = [[TMNTPlace alloc] init];
         place.name = [placeDictionary valueForKey:@"name"];
@@ -94,6 +100,37 @@
         
         //add to map
         [myMapView addAnnotation:myAnnotation];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
+    myManagedObjectContext = appDelegate.managedObjectContext;
+    NSNumber *latitude=[NSNumber numberWithFloat:[view.annotation coordinate].latitude];
+    NSNumber *longitude=[NSNumber numberWithFloat:[view.annotation coordinate].longitude];
+    
+    [self createYelpClick:[view.annotation title]
+             withLatitude:latitude
+             andLongitude:longitude];
+    
+}
+
+-(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
+{
+    YelpClick *yelpClick = [NSEntityDescription insertNewObjectForEntityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
+    yelpClick.name = name;
+    yelpClick.latitude = latitude;
+    yelpClick.longitude = longitude;
+    NSError *error;
+    [self saveWithError:error];
+    
+}
+
+-(void)saveWithError:(NSError*)error
+{
+    if (![self.myManagedObjectContext save:&error]) {
+        NSLog(@"Failed because:%@",[error userInfo]);
     }
 }
 

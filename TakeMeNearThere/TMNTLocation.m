@@ -8,9 +8,15 @@
 
 #import "TMNTLocation.h"
 
+@interface TMNTLocation ()
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
+@end
+
 @implementation TMNTLocation
 {
-    CLLocationManager *locationManager;
+    // CLLocationManager *locationManager;
 }
 @synthesize coordinate;
 
@@ -31,33 +37,36 @@
     coordinate.longitude = longitude;
     return self;
 }
-/*
-- (id)initWithCurrentLocationAndUpdates
+
+- (TMNTLocation *)initWithCurrentLocationAndUpdates
 {
     self = [super init];
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    
-    [self startUpdatingLocations];
+    if (self)
+    {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        
+        [self startUpdatingLocations];
+    }
     
     return self;
 }
 
 - (BOOL) locationKnown
 {
-    
+    return NO;
 }
 
 - (void)startUpdatingLocations
 {
-    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [locationManager startUpdatingLocation];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)stopUpdatingLocation
 {
-    [locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -76,6 +85,6 @@
     UIAlertView *alert;
     alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
-} */
+} 
 @end
 

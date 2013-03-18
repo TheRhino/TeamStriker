@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *subtitle;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 
+
 - initWithPosition:(CLLocationCoordinate2D *)coords;
 
 @end
