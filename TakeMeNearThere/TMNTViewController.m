@@ -44,8 +44,19 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     mobileMakersLocation = [[TMNTLocation alloc] init];
+    
+    //make region our area
+    MKCoordinateSpan span =
+    {
+        .latitudeDelta = 0.01410686f,
+        .longitudeDelta = 0.01410686f
+    };
+    
+    MKCoordinateRegion myRegion = {mobileMakersLocation.coordinate, span};
+    //set region to mapview
+    [myMapView setRegion:myRegion];
     
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:mobileMakersLocation];
     
@@ -113,18 +124,6 @@
 
 -(void)addPinsToMap
 {
-    //make region our area
-    MKCoordinateSpan span =
-    {
-        .latitudeDelta = 0.01810686f,
-        .longitudeDelta = 0.01810686f
-    };
-    
-    MKCoordinateRegion myRegion = {mobileMakersLocation.coordinate, span};
-    //set region to mapview
-    [myMapView setRegion:myRegion];
-    
-    
     for (int i = 0; i < returnedArray.count; i++)
     {
         CLLocation *locationOfPlace = [[returnedArray objectAtIndex:i] location];
@@ -172,7 +171,6 @@
 {
     [self performSegueWithIdentifier:@"annotationToNextViewController" sender:self];
 }
-
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
