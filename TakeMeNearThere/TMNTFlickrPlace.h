@@ -11,6 +11,7 @@
 @interface TMNTFlickrPlace : TMNTPlace
 
 @property (strong, nonatomic) NSString *urlString;
+@property (strong, nonatomic) NSString *urlStringThumbnail;
 
 
 @end

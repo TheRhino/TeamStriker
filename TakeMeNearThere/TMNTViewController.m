@@ -108,14 +108,16 @@
     {
         float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
         float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
-        NSString *urlStringFlickr=[placeDictionary valueForKey:@"url_m"];
+        NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
+        NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
         TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
         
         
         TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
         flickrPlace.name = [placeDictionary valueForKey:@"name"];
         flickrPlace.location = placeLocation;
-        flickrPlace.urlString=urlStringFlickr;
+        flickrPlace.urlString = urlStringFlickr;
+        flickrPlace.urlStringThumbnail = urlStringFlickrThumbnail;
         [flickrReturnedArray addObject:flickrPlace];
     }
     return flickrReturnedArray;
@@ -221,7 +223,7 @@
     
     dispatch_async(myqueue, ^(void)
                    {
-                       UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlString]]];
+                       UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlStringThumbnail]]];
                        flickrImageView.image = flickrImage;
                        
                        
