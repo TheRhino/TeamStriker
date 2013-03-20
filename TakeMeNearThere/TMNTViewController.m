@@ -39,8 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,7 +57,6 @@
     CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
     flickrTableView.transform = rotateTable;
     flickrTableView.backgroundColor = [UIColor blackColor];
-
 }
 
 
@@ -71,7 +68,7 @@
 
 - (void)grabArrayFlickr:(NSArray *)data
 {
-    flickrData=[self createFlickrPlacesArray:data];
+    flickrData = [self createFlickrPlacesArray:data];
     [flickrTableView reloadData];
 }
 
@@ -188,7 +185,7 @@
     [self createYelpClick:[view.annotation title]
              withLatitude:latitude
              andLongitude:longitude];
-    TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"bathrooms" andLocation:clickedLocation];
+    TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
     
@@ -217,23 +214,20 @@
     UIView *viewThatsAnImage=[customCell viewWithTag:101];
     UIImageView *flickrImageView=(UIImageView*) viewThatsAnImage;
     
-    int imageDebug = 0;
+    dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
     
-    if (imageDebug == 1) {
-        UIImage *testImage = [UIImage imageNamed:@"imagetester.png"];
-        flickrImageView.image = testImage;
-        
-    }else {
-        UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlString]]];
-        flickrImageView.image = flickrImage;
-    }
-    
-    CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
-    flickrImageView.transform = rotateImage;
-    customCell.frame = CGRectMake(0, 0, 100, 100);
-    
-    customCell.contentView.backgroundColor = [UIColor blackColor];
-
+    dispatch_async(myqueue, ^(void)
+                   {
+                       UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlString]]];
+                       flickrImageView.image = flickrImage;
+                       
+                       
+                       CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+                       flickrImageView.transform = rotateImage;
+                       customCell.frame = CGRectMake(0, 0, 100, 100);
+                       
+                       customCell.contentView.backgroundColor = [UIColor blackColor];
+                   });
     return customCell;
 }
 
