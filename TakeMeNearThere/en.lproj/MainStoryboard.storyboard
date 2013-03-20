@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="1332" y="-302"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Clean Seat-->
         <scene sceneID="iM2-QD-3Sy">
             <objects>
                 <viewController id="CDf-dG-njB" customClass="TMNTViewController" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <constraint firstItem="GyN-Nx-3lQ" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="geh-np-VM9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ej4-E3-72E"/>
+                    <navigationItem key="navigationItem" title="Clean Seat" id="Ej4-E3-72E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -180,6 +180,7 @@
         <!--Navigation Controller - Map Results-->
         <scene sceneID="TFG-0k-3kM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaQ-fZ-QdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="aAk-h9-EHB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map Results" id="pEF-Ao-XQ0"/>
                     <toolbarItems/>
@@ -192,7 +193,6 @@
                         <segue destination="CDf-dG-njB" kind="relationship" relationship="rootViewController" id="tmE-O3-DRV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aaQ-fZ-QdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1332" y="-1082"/>
         </scene>
