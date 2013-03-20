@@ -14,6 +14,9 @@
 
 
 @interface HistoryTableViewController ()
+{
+    NSArray* yelpHistory;
+}
 
 @end
 
@@ -24,19 +27,21 @@
 
 @synthesize myManagedObjectContext;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
+    
+    yelpHistory = [self getYelpHistory];
 	// Do any additional setup after loading the view.
 }
 
@@ -64,8 +69,12 @@
     {
         tableViewCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"clickHistoryCell"];
     }
-    NSArray* yelpHistory= [myManagedObjectContext valueForKey:@"name"];
+
+    UIView *yelpClickViewToLabel = [tableViewCell viewWithTag:100];
+    UILabel *yelpClickLabel = (UILabel *)yelpClickViewToLabel;
     
+    yelpClickLabel.text = [[yelpHistory objectAtIndex:[indexPath row]]valueForKey:@"name"];
+    return tableViewCell;
     
 }
 

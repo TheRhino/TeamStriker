@@ -10,6 +10,7 @@
 
 @protocol TMNTDataSourceDelegate <NSObject>
 
-- (void)grabArray:(NSArray *)data;
+- (void)grabArrayYelp:(NSArray *)data;
+- (void)grabArrayFlickr:(NSArray *)data;
 
 @end

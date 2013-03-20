@@ -13,6 +13,7 @@
 @interface TMNTViewController : UIViewController <TMNTDataSourceDelegate>
 
 @property (strong, nonatomic) NSMutableArray *returnedArray;
+@property (strong, nonatomic) NSMutableArray *flickrReturnedArray;
 @property NSManagedObjectContext *myManagedObjectContext;
 
 
