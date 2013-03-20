@@ -25,7 +25,6 @@
     TMNTLocation *mobileMakersLocation;
     __weak IBOutlet UITableView *flickrTableView;
     NSMutableArray *flickrData;
-
 }
 @end
 
@@ -159,7 +158,9 @@
         {
             pinView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myMap"];
         }
+        
         pinView.pinColor = MKPinAnnotationColorGreen;
+        
         [detailButton addTarget:self action:@selector(prepareForSegue:sender:) forControlEvents:(UIControlEventTouchDown)];
         pinView.canShowCallout =YES;
         pinView.rightCalloutAccessoryView = detailButton;
@@ -241,8 +242,6 @@
     yelpClick.longitude = longitude;
     NSError *error;
     [self saveWithError:error];
-    
-    
 }
 
 -(void)saveWithError:(NSError*)error
@@ -252,8 +251,6 @@
         NSLog(@"Failed because:%@",[error userInfo]);
     }
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
