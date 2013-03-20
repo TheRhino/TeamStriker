@@ -147,19 +147,24 @@
 
 -(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    MKPinAnnotationView*pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myMap"];
-    if(pinView ==nil)
+    if ([annotation isKindOfClass:[MKUserLocation class]])
     {
-        pinView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myMap"];
+        return nil;
+    } else
+    {
+        UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        MKPinAnnotationView*pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myMap"];
         
+        if(pinView ==nil)
+        {
+            pinView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myMap"];
+        }
+        pinView.pinColor = MKPinAnnotationColorGreen;
+        [detailButton addTarget:self action:@selector(prepareForSegue:sender:) forControlEvents:(UIControlEventTouchDown)];
+        pinView.canShowCallout =YES;
+        pinView.rightCalloutAccessoryView = detailButton;
+        return pinView;
     }
-    pinView.pinColor = MKPinAnnotationColorGreen;
-    
-    [detailButton addTarget:self action:@selector(prepareForSegue:sender:) forControlEvents:(UIControlEventTouchDown)];
-    pinView.canShowCallout =YES;
-    pinView.rightCalloutAccessoryView = detailButton;
-    return pinView;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -186,7 +191,6 @@
     TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
