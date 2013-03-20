@@ -60,17 +60,17 @@
             </objects>
             <point key="canvasLocation" x="1332" y="-302"/>
         </scene>
-        <!--View Controller - Map Results-->
+        <!--View Controller-->
         <scene sceneID="iM2-QD-3Sy">
             <objects>
                 <viewController id="CDf-dG-njB" customClass="TMNTViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JUa-9l-mfa">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="340" id="eRU-sr-H8P"/>
+                                    <constraint firstAttribute="height" constant="395" id="1jF-r6-bRf"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="CDf-dG-njB" id="ydb-HC-j0x"/>
@@ -79,7 +79,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-Nx-3lQ">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="157" id="XEP-VS-uv2"/>
+                                    <constraint firstAttribute="height" constant="130" id="Iyu-aM-NGW"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellIdentifierFlickr" rowHeight="107" id="HNs-Tv-dDI">
@@ -121,17 +121,43 @@
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="JUa-9l-mfa" secondAttribute="trailing" type="default" id="lEE-MY-DjN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map Results" id="pEF-Ao-XQ0"/>
+                    <navigationItem key="navigationItem" id="Ej4-E3-72E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="flickrTableView" destination="GyN-Nx-3lQ" id="BiC-kY-o1W"/>
                         <outlet property="myMapView" destination="ufj-DT-Tqj" id="Kij-c6-0Aj"/>
+                        <segue destination="2hC-cx-Jcq" kind="push" identifier="annotationToNextViewController" id="k3p-gz-MsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do5-Hs-v5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="-954"/>
+            <point key="canvasLocation" x="1858" y="-1082"/>
+        </scene>
+        <!--Business View Controller-->
+        <scene sceneID="JH8-jc-SaY">
+            <objects>
+                <viewController id="2hC-cx-Jcq" customClass="BusinessViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SM8-Ts-Svn">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9n-jg-1BO">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="A9n-jg-1BO" secondAttribute="bottom" constant="197" id="FbW-qx-SOL"/>
+                            <constraint firstItem="A9n-jg-1BO" firstAttribute="centerX" secondItem="SM8-Ts-Svn" secondAttribute="centerX" type="default" id="Lvm-2G-LLD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5p-Uh-zNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2397" y="-1081"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9nt-eS-6XK">
@@ -144,7 +170,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CDf-dG-njB" kind="relationship" relationship="viewControllers" id="aGr-qW-nYM"/>
+                        <segue destination="aAk-h9-EHB" kind="relationship" relationship="viewControllers" id="aGr-qW-nYM"/>
                         <segue destination="S7E-fg-5Ky" kind="relationship" relationship="viewControllers" id="GmW-HK-hod"/>
                     </connections>
                 </tabBarController>
@@ -152,8 +178,30 @@
             </objects>
             <point key="canvasLocation" x="796" y="-626"/>
         </scene>
+        <!--Navigation Controller - Map Results-->
+        <scene sceneID="TFG-0k-3kM">
+            <objects>
+                <navigationController id="aAk-h9-EHB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map Results" id="pEF-Ao-XQ0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ETU-P5-RzM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CDf-dG-njB" kind="relationship" relationship="rootViewController" id="tmE-O3-DRV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaQ-fZ-QdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1332" y="-1082"/>
+        </scene>
     </scenes>
     <classes>
+        <class className="BusinessViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusinessViewController.h"/>
+        </class>
         <class className="HistoryTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryTableViewController.h"/>
         </class>

@@ -16,6 +16,7 @@
 #import "TMNTAppDelegate.h"
 #import "YelpClick.h"
 #import "TMNTFlickrPlace.h"
+#import "BusinessViewController.h"
 
 
 @interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate>
@@ -39,16 +40,25 @@
 {
     [super viewDidLoad];
     
-    mobileMakersLocation = [[TMNTLocation alloc] init];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    mobileMakersLocation = [[TMNTLocation alloc] init];
+    
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:mobileMakersLocation];
     
     TMNTLocation* newLocation = [[TMNTLocation alloc] initWithCurrentLocationAndUpdates];
     
     yelpProcess.delegate = self;
-
+    
     [yelpProcess getYelpJSON];
+    
 }
+
 
 - (void)grabArrayYelp:(NSArray *)data
 {
@@ -74,6 +84,7 @@
         
         TMNTPlace *place = [[TMNTPlace alloc] init];
         place.name = [placeDictionary valueForKey:@"name"];
+        place.neighborhood=[[[placeDictionary valueForKey:@"neighborhoods"]objectAtIndex:0]valueForKey:@"name"];
         place.location = placeLocation;
         [returnedArray addObject:place];
     }
@@ -118,6 +129,7 @@
     {
         CLLocation *locationOfPlace = [[returnedArray objectAtIndex:i] location];
         NSString *nameOfPlace = [[returnedArray objectAtIndex:i] name];
+        NSString *neighborhood=[[returnedArray objectAtIndex:i]neighborhood];
         
         //coordinate make
         CLLocationCoordinate2D placeCoordinate;
@@ -127,11 +139,40 @@
         //annotation make
         TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
         myAnnotation.title = nameOfPlace;
-        
+        myAnnotation.subtitle=neighborhood;
+        myAnnotation.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         //add to map
         [myMapView addAnnotation:myAnnotation];
     }
 }
+
+-(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    MKPinAnnotationView*pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myMap"];
+    if(pinView ==nil)
+    {
+        pinView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myMap"];
+        
+    }
+    pinView.pinColor = MKPinAnnotationColorGreen;
+    
+    [detailButton addTarget:self action:@selector(prepareForSegue:sender:) forControlEvents:(UIControlEventTouchDown)];
+    pinView.canShowCallout =YES;
+    pinView.rightCalloutAccessoryView = detailButton;
+    return pinView;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"It Works!");
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"annotationToNextViewController" sender:self];
+}
+
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {

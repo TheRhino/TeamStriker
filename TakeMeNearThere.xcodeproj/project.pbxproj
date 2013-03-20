@@ -31,6 +31,7 @@
 		F168C7F316F22FE9001AA169 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
 		F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F168C7F816F23638001AA169 /* HistoryTableViewController.m */; };
 		F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A018A516F8CBA8005BC9F9 /* TMNTFlickrPlace.m */; };
+		F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A018AB16FA1DFA005BC9F9 /* BusinessViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
 		F1A018A416F8CBA8005BC9F9 /* TMNTFlickrPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTFlickrPlace.h; sourceTree = "<group>"; };
 		F1A018A516F8CBA8005BC9F9 /* TMNTFlickrPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTFlickrPlace.m; sourceTree = "<group>"; };
+		F1A018AA16FA1DFA005BC9F9 /* BusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessViewController.h; sourceTree = "<group>"; };
+		F1A018AB16FA1DFA005BC9F9 /* BusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
 				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
+				F1A018AA16FA1DFA005BC9F9 /* BusinessViewController.h */,
+				F1A018AB16FA1DFA005BC9F9 /* BusinessViewController.m */,
 				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
 				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
 				8FBF3B8E16EE94E500308CBD /* Supporting Files */,
@@ -302,6 +307,7 @@
 				F168C7F216F22EF4001AA169 /* YelpClick.m in Sources */,
 				F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */,
 				F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */,
+				F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

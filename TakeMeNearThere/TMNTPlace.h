@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) TMNTLocation *location;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *neighborhood;
 
 
 @end

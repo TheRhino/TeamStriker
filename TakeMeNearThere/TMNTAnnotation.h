@@ -14,6 +14,10 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *subtitle;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic) UIImage *rating;
+@property (strong, nonatomic) NSString *imageURL;
+@property (strong, nonatomic) UIButton *rightCalloutAccessoryView;
+
 
 
 - initWithPosition:(CLLocationCoordinate2D *)coords;
