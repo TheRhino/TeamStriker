@@ -16,8 +16,6 @@
 #import "TMNTAppDelegate.h"
 #import "YelpClick.h"
 #import "TMNTFlickrPlace.h"
-#import "BusinessViewController.h"
-
 
 @interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate>
 {
@@ -27,6 +25,7 @@
     TMNTLocation *mobileMakersLocation;
     __weak IBOutlet UITableView *flickrTableView;
     NSMutableArray *flickrData;
+
 }
 @end
 
@@ -35,6 +34,7 @@
 @synthesize returnedArray;
 @synthesize myManagedObjectContext;
 @synthesize flickrReturnedArray;
+
 
 - (void)viewDidLoad
 {
@@ -51,12 +51,15 @@
     
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:mobileMakersLocation];
     
-    TMNTLocation* newLocation = [[TMNTLocation alloc] initWithCurrentLocationAndUpdates];
-    
     yelpProcess.delegate = self;
     
     [yelpProcess getYelpJSON];
     
+
+    CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
+    flickrTableView.transform = rotateTable;
+    flickrTableView.backgroundColor = [UIColor blackColor];
+
 }
 
 
@@ -189,17 +192,14 @@
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
     
-    
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(flickrData == nil)
+    if (flickrData == nil)
     {
         return 0;
-    }
-    else
+    } else
     {
         return flickrData.count;
     }
@@ -213,14 +213,28 @@
         customCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellIdentifierFlickr"];
     }
     TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
-    
-    UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlString]]];
+
     UIView *viewThatsAnImage=[customCell viewWithTag:101];
     UIImageView *flickrImageView=(UIImageView*) viewThatsAnImage;
-    flickrImageView.image=flickrImage;
     
+    int imageDebug = 0;
+    
+    if (imageDebug == 1) {
+        UIImage *testImage = [UIImage imageNamed:@"imagetester.png"];
+        flickrImageView.image = testImage;
+        
+    }else {
+        UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlString]]];
+        flickrImageView.image = flickrImage;
+    }
+    
+    CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+    flickrImageView.transform = rotateImage;
+    customCell.frame = CGRectMake(0, 0, 100, 100);
+    
+    customCell.contentView.backgroundColor = [UIColor blackColor];
+
     return customCell;
-    
 }
 
 -(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
