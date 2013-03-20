@@ -121,6 +121,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D45EF1A16FA675F00E79CD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F168C7F716F23638001AA169 /* HistoryTableViewController.h */,
+				F168C7F816F23638001AA169 /* HistoryTableViewController.m */,
+				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
+				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
+				F1A018AA16FA1DFA005BC9F9 /* BusinessViewController.h */,
+				F1A018AB16FA1DFA005BC9F9 /* BusinessViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1D45EF1C16FA677500E79CD4 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F168C7F016F22EF4001AA169 /* YelpClick.h */,
+				F168C7F116F22EF4001AA169 /* YelpClick.m */,
+				F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		1D45EF1D16FA678900E79CD4 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8FBF3BC116EE976900308CBD /* TMNTLocation.h */,
+				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
+				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
+				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
+				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
+				1D3C660316EE9CB100956EF2 /* TMNTPlace.m */,
+				F1A018A416F8CBA8005BC9F9 /* TMNTFlickrPlace.h */,
+				F1A018A516F8CBA8005BC9F9 /* TMNTFlickrPlace.m */,
+				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
+				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		1D45EF1E16FA67A500E79CD4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		8FBF3B7B16EE94E500308CBD = {
 			isa = PBXGroup;
 			children = (
@@ -156,29 +204,13 @@
 		8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */ = {
 			isa = PBXGroup;
 			children = (
+				1D45EF1E16FA67A500E79CD4 /* Protocols */,
+				1D45EF1D16FA678900E79CD4 /* Custom Classes */,
+				1D45EF1C16FA677500E79CD4 /* Core Data */,
+				1D45EF1A16FA675F00E79CD4 /* Views */,
 				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
-				F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */,
-				1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */,
-				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
-				1D3C660316EE9CB100956EF2 /* TMNTPlace.m */,
-				F1A018A416F8CBA8005BC9F9 /* TMNTFlickrPlace.h */,
-				F1A018A516F8CBA8005BC9F9 /* TMNTFlickrPlace.m */,
-				F168C7F016F22EF4001AA169 /* YelpClick.h */,
-				F168C7F116F22EF4001AA169 /* YelpClick.m */,
-				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
-				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
-				F168C7F716F23638001AA169 /* HistoryTableViewController.h */,
-				F168C7F816F23638001AA169 /* HistoryTableViewController.m */,
 				8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */,
 				8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */,
-				8FBF3BC116EE976900308CBD /* TMNTLocation.h */,
-				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
-				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
-				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
-				F1A018AA16FA1DFA005BC9F9 /* BusinessViewController.h */,
-				F1A018AB16FA1DFA005BC9F9 /* BusinessViewController.m */,
-				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
-				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
 				8FBF3B8E16EE94E500308CBD /* Supporting Files */,
 			);
 			path = TakeMeNearThere;
