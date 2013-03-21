@@ -6,27 +6,27 @@
 //  Copyright (c) 2013 Nathan Levine. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 #import "TMNTViewController.h"
 #import "TMNTLocation.h"
 #import "TMNTAPIProcessor.h"
 #import "TMNTPlace.h"
-#import <MapKit/MapKit.h>
 #import "TMNTAnnotation.h"
-#import <CoreLocation/CoreLocation.h>
 #import "TMNTAppDelegate.h"
 #import "YelpClick.h"
 #import "TMNTFlickrPlace.h"
 #import "BusinessViewController.h"
-
-
+#import "TMNTCell.h"
 
 @interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate>
 {
     TMNTAPIProcessor *yelpProcess;
-    __weak IBOutlet MKMapView *myMapView;
-    NSMutableArray *yelpData;
     TMNTLocation *mobileMakersLocation;
+    
     __weak IBOutlet UITableView *flickrTableView;
+    __weak IBOutlet MKMapView *myMapView;
     NSMutableArray *flickrData;
     NSString *nameOfPlace;
     NSString *clickedBusiness;
@@ -37,16 +37,18 @@
     NSString *clickedState;
     NSString *clickedZip;
     NSString *clickedPhone;
-
+    NSMutableArray *yelpData;
+    NSMutableDictionary *flickrPicturesDictionary;
 }
 @end
 
 @implementation TMNTViewController
 
-@synthesize returnedArray;
 @synthesize myManagedObjectContext;
 @synthesize flickrReturnedArray;
+@synthesize returnedArray;
 
+#pragma mark View stuff
 
 
 - (void)viewDidLoad
@@ -58,6 +60,7 @@
 {
     [super viewWillAppear:animated];
 
+    flickrPicturesDictionary = [NSMutableDictionary dictionary];
     mobileMakersLocation = [[TMNTLocation alloc] init];
     
     //make region our area
@@ -76,24 +79,16 @@
     yelpProcess.delegate = self;
     
     [yelpProcess getYelpJSON];
-    
 
     CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
     flickrTableView.transform = rotateTable;
     flickrTableView.backgroundColor = [UIColor blackColor];
 }
 
-
 - (void)grabArrayYelp:(NSArray *)data
 {
     yelpData = [self createPlacesArray:data];
     [self addPinsToMap];
-}
-
-- (void)grabArrayFlickr:(NSArray *)data
-{
-    flickrData = [self createFlickrPlacesArray:data];
-    [flickrTableView reloadData];
 }
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
@@ -119,28 +114,6 @@
         [returnedArray addObject:place];
     }
     return returnedArray;
-}
-
-- (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
-{
-    flickrReturnedArray =[[NSMutableArray alloc]init];
-    for (NSDictionary *placeDictionary in flickrPlacesData)
-    {
-        float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
-        float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
-        NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
-        NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
-        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
-        
-        
-        TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
-        flickrPlace.name = [placeDictionary valueForKey:@"name"];
-        flickrPlace.location = placeLocation;
-        flickrPlace.urlString = urlStringFlickr;
-        flickrPlace.urlStringThumbnail = urlStringFlickrThumbnail;
-        [flickrReturnedArray addObject:flickrPlace];
-    }
-    return flickrReturnedArray;
 }
 
 -(void)addPinsToMap
@@ -239,46 +212,7 @@
     TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (flickrData == nil)
-    {
-        return 0;
-    } else
-    {
-        return flickrData.count;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell*customCell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifierFlickr"];
-    if (customCell == nil)
-    {
-        customCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellIdentifierFlickr"];
-    }
-    TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
-
-    UIView *viewThatsAnImage=[customCell viewWithTag:101];
-    UIImageView *flickrImageView=(UIImageView*) viewThatsAnImage;
     
-    dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
-    
-    dispatch_async(myqueue, ^(void)
-                   {
-                       UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newPlace.urlStringThumbnail]]];
-                       flickrImageView.image = flickrImage;
-                       
-                       
-                       CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
-                       flickrImageView.transform = rotateImage;
-                       customCell.frame = CGRectMake(0, 0, 100, 100);
-                       
-                       customCell.contentView.backgroundColor = [UIColor blackColor];
-                   });
-    return customCell;
 }
 
 -(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
@@ -299,10 +233,83 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark Flickr stuff
+
+- (void)grabArrayFlickr:(NSArray *)data
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (flickrPicturesDictionary != nil)
+    {
+        [flickrPicturesDictionary removeAllObjects];
+    }
+    
+    flickrData = [self createFlickrPlacesArray:data];
+    [flickrTableView reloadData];
 }
 
+- (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
+{
+    flickrReturnedArray =[[NSMutableArray alloc]init];
+    for (NSDictionary *placeDictionary in flickrPlacesData)
+    {
+        float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
+        float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
+        NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
+        NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
+        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
+        
+        TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
+        flickrPlace.name = [placeDictionary valueForKey:@"name"];
+        flickrPlace.location = placeLocation;
+        flickrPlace.urlString = urlStringFlickr;
+        flickrPlace.urlStringThumbnail = urlStringFlickrThumbnail;
+        [flickrReturnedArray addObject:flickrPlace];
+    }
+    return flickrReturnedArray;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (flickrData == nil)
+    {
+        return 0;
+    } else
+    {
+        return flickrData.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellID = @"cellIdentifierFlickr";
+    
+    TMNTCell *customCell = (TMNTCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (customCell == nil)
+    {
+        customCell = [[TMNTCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellIdentifierFlickr"];
+    }
+    
+    TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
+    
+    UIView *viewThatsAnImage=[customCell viewWithTag:101];
+    UIImageView *flickrImageView=(UIImageView*) viewThatsAnImage;
+    
+    CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+    flickrImageView.transform = rotateImage;
+    
+    customCell.contentView.backgroundColor = [UIColor blackColor];
+    
+    if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
+    {
+        [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary];
+        
+        return customCell;
+        
+    } else
+    {
+        UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
+        flickrImageView.image = existingImage;
+        return customCell;
+    }
+}
 @end

@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="width" constant="80" id="iKm-iS-7av"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cellIdentifierFlickr" rowHeight="80" id="aCp-oM-r89">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cellIdentifierFlickr" rowHeight="80" id="aCp-oM-r89" customClass="TMNTCell">
                                         <rect key="frame" x="0.0" y="22" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
