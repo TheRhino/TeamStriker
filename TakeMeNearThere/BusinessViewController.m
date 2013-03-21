@@ -8,11 +8,24 @@
 
 #import "BusinessViewController.h"
 
+
 @interface BusinessViewController ()
+{
+    IBOutlet UILabel *businessNameLabel;
+    IBOutlet UILabel *neighborhoodLabel;
+    IBOutlet UIImageView *businessImage;
+    IBOutlet UILabel *streetAddress;
+    IBOutlet UILabel *cityStateZip;
+    IBOutlet UIImageView *ratingReviewImage;
+    IBOutlet UILabel *phone;
+    
+    
+}
 
 @end
 
 @implementation BusinessViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +39,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    businessNameLabel.text=self.businessName;
+    neighborhoodLabel.text=self.neighborhoodName;
+    businessImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.businessURL]]];
+    streetAddress.text = self.businessStreetAddress;
+    cityStateZip.text = self.businessCityStateZip;
+    phone.text = self.businessphone;
+    
 	// Do any additional setup after loading the view.
 }
 

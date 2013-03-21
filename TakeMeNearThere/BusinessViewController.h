@@ -10,4 +10,11 @@
 
 @interface BusinessViewController : UIViewController
 
+@property (strong, nonatomic) NSString *businessName;
+@property (strong, nonatomic) NSString *neighborhoodName;
+@property (strong, nonatomic) NSString *businessURL;
+@property (strong, nonatomic) NSString *businessStreetAddress;
+@property (strong, nonatomic) NSString *businessCityStateZip;
+@property (strong, nonatomic) NSString *businessphone;
+
 @end

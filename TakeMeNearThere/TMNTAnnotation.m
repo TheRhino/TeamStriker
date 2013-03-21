@@ -9,7 +9,7 @@
 #import "TMNTAnnotation.h"
 
 @implementation TMNTAnnotation
-@synthesize coordinate,title,subtitle;
+@synthesize coordinate,title,subtitle, place;
 
 - initWithPosition:(CLLocationCoordinate2D *)coords
 {

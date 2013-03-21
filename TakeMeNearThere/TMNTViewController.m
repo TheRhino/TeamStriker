@@ -16,6 +16,9 @@
 #import "TMNTAppDelegate.h"
 #import "YelpClick.h"
 #import "TMNTFlickrPlace.h"
+#import "BusinessViewController.h"
+
+
 
 @interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate>
 {
@@ -25,6 +28,16 @@
     TMNTLocation *mobileMakersLocation;
     __weak IBOutlet UITableView *flickrTableView;
     NSMutableArray *flickrData;
+    NSString *nameOfPlace;
+    NSString *clickedBusiness;
+    NSString *clickedBusinessNeighborhood;
+    NSString *clickedBusinessPhotoURL;
+    NSString *clickedBusinessStreetAddress;
+    NSString *clickedCity;
+    NSString *clickedState;
+    NSString *clickedZip;
+    NSString *clickedPhone;
+
 }
 @end
 
@@ -33,6 +46,7 @@
 @synthesize returnedArray;
 @synthesize myManagedObjectContext;
 @synthesize flickrReturnedArray;
+
 
 
 - (void)viewDidLoad
@@ -95,6 +109,12 @@
         TMNTPlace *place = [[TMNTPlace alloc] init];
         place.name = [placeDictionary valueForKey:@"name"];
         place.neighborhood=[[[placeDictionary valueForKey:@"neighborhoods"]objectAtIndex:0]valueForKey:@"name"];
+        place.photoURLString=[placeDictionary valueForKey:@"photo_url"];
+        place.streetAddress=[placeDictionary valueForKey:@"address1"];
+        place.city=[placeDictionary valueForKey:@"city"];
+        place.state=[placeDictionary valueForKey:@"state"];
+        place.zip = [placeDictionary valueForKey:@"zip"];
+        place.phone=[placeDictionary valueForKey:@"phone"];
         place.location = placeLocation;
         [returnedArray addObject:place];
     }
@@ -128,7 +148,7 @@
     for (int i = 0; i < returnedArray.count; i++)
     {
         CLLocation *locationOfPlace = [[returnedArray objectAtIndex:i] location];
-        NSString *nameOfPlace = [[returnedArray objectAtIndex:i] name];
+        nameOfPlace = [[returnedArray objectAtIndex:i] name];
         NSString *neighborhood=[[returnedArray objectAtIndex:i]neighborhood];
         
         //coordinate make
@@ -141,6 +161,7 @@
         myAnnotation.title = nameOfPlace;
         myAnnotation.subtitle=neighborhood;
         myAnnotation.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        myAnnotation.place = [returnedArray objectAtIndex:i];
         //add to map
         [myMapView addAnnotation:myAnnotation];
     }
@@ -162,22 +183,30 @@
         }
         
         pinView.pinColor = MKPinAnnotationColorGreen;
-        
-        [detailButton addTarget:self action:@selector(prepareForSegue:sender:) forControlEvents:(UIControlEventTouchDown)];
+    
         pinView.canShowCallout =YES;
         pinView.rightCalloutAccessoryView = detailButton;
         return pinView;
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"It Works!");
-}
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [self performSegueWithIdentifier:@"annotationToNextViewController" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BusinessViewController *businessPage=[segue destinationViewController];
+    businessPage.businessName = clickedBusiness;
+    businessPage.neighborhoodName =clickedBusinessNeighborhood;
+    businessPage.businessURL=clickedBusinessPhotoURL;
+    businessPage.businessStreetAddress=clickedBusinessStreetAddress;
+    businessPage.businessCityStateZip=[NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
+    businessPage.businessphone=clickedPhone;
+    
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -187,6 +216,22 @@
     NSNumber *latitude=[NSNumber numberWithFloat:[view.annotation coordinate].latitude];
     NSNumber *longitude=[NSNumber numberWithFloat:[view.annotation coordinate].longitude];
     TMNTLocation *clickedLocation = [[TMNTLocation alloc]initWithLatitude:[latitude floatValue] andLongitude:[longitude floatValue]];
+    clickedBusiness=[view.annotation title];
+    clickedBusinessNeighborhood=[view.annotation subtitle];
+    
+    
+    //HEHE
+    TMNTAnnotation *myAnnotation = (TMNTAnnotation *) view.annotation;
+    NSLog(@"%@", myAnnotation.place.photoURLString);
+    clickedBusinessPhotoURL=myAnnotation.place.photoURLString;
+    clickedBusinessStreetAddress=myAnnotation.place.streetAddress;
+    clickedCity=myAnnotation.place.city;
+    clickedState = myAnnotation.place.state;
+    clickedZip = myAnnotation.place.zip;
+    clickedPhone = myAnnotation.place.phone;
+    
+    
+    //HEHE
     
     [self createYelpClick:[view.annotation title]
              withLatitude:latitude

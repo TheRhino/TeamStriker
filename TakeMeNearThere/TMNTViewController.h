@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *flickrReturnedArray;
 @property NSManagedObjectContext *myManagedObjectContext;
 
+
 -(void)addPinsToMap;
 
 @end

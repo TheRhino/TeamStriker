@@ -16,6 +16,13 @@
 @property (strong, nonatomic) TMNTLocation *location;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *neighborhood;
+@property (strong, nonatomic) NSString *photoURLString;
+@property (strong, nonatomic) NSString *ratingURL;
+@property (strong, nonatomic) NSString *streetAddress;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *state;
+@property (strong, nonatomic) NSString *zip;
+@property (strong, nonatomic) NSString *phone;
 
 
 @end
