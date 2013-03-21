@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) NSString *urlStringThumbnail;
+@property (assign, nonatomic) NSInteger pictureTagID;
 
 
 @end

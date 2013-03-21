@@ -10,4 +10,6 @@
 
 @implementation TMNTFlickrPlace
 
+@synthesize urlString, urlStringThumbnail, pictureTagID;
+
 @end

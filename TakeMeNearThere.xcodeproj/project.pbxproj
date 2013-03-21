@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
+		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
 		8FBF3B8816EE94E500308CBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8716EE94E500308CBD /* UIKit.framework */; };
 		8FBF3B8A16EE94E500308CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8916EE94E500308CBD /* Foundation.framework */; };
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
@@ -64,6 +65,8 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTCell.h; sourceTree = "<group>"; };
+		1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTCell.m; sourceTree = "<group>"; };
 		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF3B8716EE94E500308CBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FBF3B8916EE94E500308CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +150,8 @@
 		1D45EF1D16FA678900E79CD4 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */,
+				1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */,
 				8FBF3BC116EE976900308CBD /* TMNTLocation.h */,
 				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
 				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
@@ -344,6 +349,7 @@
 				F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */,
 				F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */,
 				F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */,
+				1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

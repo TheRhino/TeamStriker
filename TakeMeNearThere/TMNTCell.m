@@ -1,0 +1,32 @@
+//
+//  TMNTCell.m
+//  TakeMeNearThere
+//
+//  Created by Dexter Teng on 3/21/13.
+//  Copyright (c) 2013 Heroes in a Half Shell. All rights reserved.
+//
+
+#import "TMNTCell.h"
+
+@implementation TMNTCell
+
+- (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary
+{
+ // d   dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void)
+                   {
+                       CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+                       UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+                       self.imageView.transform = rotateImage;
+                       self.imageView.image = flickrImage;
+                       [dictionary setValue:flickrImage forKey:urlString];
+                   });
+}
+
+- (TMNTCell *)initWithStyle:(UITableViewCellStyle)uiTableViewCellStyle reuseIdentifier:(NSString *)cellID
+{
+    self = [super initWithStyle:uiTableViewCellStyle reuseIdentifier:cellID];
+    return self;
+}
+@end
