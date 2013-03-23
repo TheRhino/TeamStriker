@@ -291,12 +291,8 @@
     
     TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
     
-    UIView *viewThatsAnImage=[customCell viewWithTag:101];
-    UIImageView *flickrImageView=(UIImageView*) viewThatsAnImage;
-    
-    CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
-    flickrImageView.transform = rotateImage;
-    
+    UIView *viewThatsAnImage = [customCell viewWithTag:101];
+    UIImageView *flickrImageView = (UIImageView*) viewThatsAnImage;
     customCell.contentView.backgroundColor = [UIColor blackColor];
     
     if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
@@ -307,6 +303,9 @@
         
     } else
     {
+        
+        CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+        flickrImageView.transform = rotateImage;
         UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
         flickrImageView.image = existingImage;
         return customCell;

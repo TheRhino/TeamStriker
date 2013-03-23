@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -83,11 +83,11 @@
                                     <constraint firstAttribute="width" constant="80" id="iKm-iS-7av"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cellIdentifierFlickr" rowHeight="80" id="aCp-oM-r89" customClass="TMNTCell">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellIdentifierFlickr" rowHeight="80" id="aCp-oM-r89" customClass="TMNTCell">
                                         <rect key="frame" x="0.0" y="22" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wk4-Az-4GD">
@@ -103,6 +103,9 @@
                                             <constraint firstItem="wk4-Az-4GD" firstAttribute="centerY" secondItem="aCp-oM-r89" secondAttribute="centerY" type="default" id="AjV-26-4DY"/>
                                             <constraint firstItem="wk4-Az-4GD" firstAttribute="centerX" secondItem="aCp-oM-r89" secondAttribute="centerX" type="default" id="R5h-6e-JsB"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="xpb-q6-gnx" kind="push" identifier="ImageViewTest" id="MgL-AK-iWG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -132,6 +135,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do5-Hs-v5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1858" y="-1082"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QKw-ZA-hfu">
+            <objects>
+                <viewController id="xpb-q6-gnx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k3j-R3-qT2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I3y-fC-6Qg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDT-7G-MbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="-1518"/>
         </scene>
         <!--Business View Controller-->
         <scene sceneID="JH8-jc-SaY">
@@ -220,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5p-Uh-zNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2397" y="-1081"/>
+            <point key="canvasLocation" x="2429" y="-777"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9nt-eS-6XK">
@@ -279,6 +297,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TMNTCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTCell.h"/>
         </class>
         <class className="TMNTViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>

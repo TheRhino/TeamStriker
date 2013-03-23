@@ -18,8 +18,8 @@
                    {
                        CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
                        UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
-                       self.imageView.transform = rotateImage;
                        self.imageView.image = flickrImage;
+                       self.imageView.transform = rotateImage;
                        [dictionary setValue:flickrImage forKey:urlString];
                    });
 }
