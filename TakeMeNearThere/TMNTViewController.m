@@ -163,7 +163,6 @@
     }
 }
 
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [self performSegueWithIdentifier:@"annotationToNextViewController" sender:self];
@@ -174,12 +173,11 @@
 {
     BusinessViewController *businessPage=[segue destinationViewController];
     businessPage.businessName = clickedBusiness;
-    businessPage.neighborhoodName =clickedBusinessNeighborhood;
-    businessPage.businessURL=clickedBusinessPhotoURL;
-    businessPage.businessStreetAddress=clickedBusinessStreetAddress;
-    businessPage.businessCityStateZip=[NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
-    businessPage.businessphone=clickedPhone;
-    
+    businessPage.neighborhoodName = clickedBusinessNeighborhood;
+    businessPage.businessURL = clickedBusinessPhotoURL;
+    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
+    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
+    businessPage.businessphone = clickedPhone;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -297,18 +295,16 @@
     
     if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
     {
-        [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary];
         
-        return customCell;
-        
+        [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary onImageView:flickrImageView];
     } else
     {
-        
         CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
         flickrImageView.transform = rotateImage;
         UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
         flickrImageView.image = existingImage;
-        return customCell;
     }
+    
+    return customCell;
 }
 @end

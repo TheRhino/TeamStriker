@@ -10,16 +10,16 @@
 
 @implementation TMNTCell
 
-- (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary
+- (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary onImageView:(UIImageView *)imageView
 {
- // d   dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
-    
-    dispatch_async(dispatch_get_main_queue(), ^(void)
+    imageView.image = [UIImage imageNamed:@"imagetester.png"];
+    dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
+    dispatch_async(myqueue, ^(void)
                    {
                        CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
                        UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
-                       self.imageView.image = flickrImage;
-                       self.imageView.transform = rotateImage;
+                       imageView.image = flickrImage;
+                       imageView.transform = rotateImage;
                        [dictionary setValue:flickrImage forKey:urlString];
                    });
 }

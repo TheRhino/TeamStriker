@@ -10,6 +10,6 @@
 
 @interface TMNTCell : UITableViewCell
 
-- (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary;
+- (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary onImageView:(UIImageView *)imageView;
 
 @end

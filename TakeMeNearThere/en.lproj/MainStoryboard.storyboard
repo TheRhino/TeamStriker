@@ -103,9 +103,6 @@
                                             <constraint firstItem="wk4-Az-4GD" firstAttribute="centerY" secondItem="aCp-oM-r89" secondAttribute="centerY" type="default" id="AjV-26-4DY"/>
                                             <constraint firstItem="wk4-Az-4GD" firstAttribute="centerX" secondItem="aCp-oM-r89" secondAttribute="centerX" type="default" id="R5h-6e-JsB"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="xpb-q6-gnx" kind="push" identifier="ImageViewTest" id="MgL-AK-iWG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -135,21 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do5-Hs-v5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1858" y="-1082"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="QKw-ZA-hfu">
-            <objects>
-                <viewController id="xpb-q6-gnx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k3j-R3-qT2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="I3y-fC-6Qg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lDT-7G-MbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2423" y="-1518"/>
         </scene>
         <!--Business View Controller-->
         <scene sceneID="JH8-jc-SaY">
@@ -238,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5p-Uh-zNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429" y="-777"/>
+            <point key="canvasLocation" x="2401" y="-1082"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9nt-eS-6XK">
@@ -279,36 +261,6 @@
             <point key="canvasLocation" x="1332" y="-1082"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BusinessViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusinessViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="businessImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="businessNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cityStateZip" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="neighborhoodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phone" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingReviewImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="streetAddress" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="HistoryTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TMNTCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTCell.h"/>
-        </class>
-        <class className="TMNTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="flickrTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
