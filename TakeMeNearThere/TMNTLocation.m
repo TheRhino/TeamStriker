@@ -16,7 +16,7 @@
 
 @implementation TMNTLocation
 {
-    // CLLocationManager *locationManager;
+    CLLocationManager *locationManager;
 }
 @synthesize coordinate;
 
@@ -24,7 +24,10 @@
 - (TMNTLocation *)init
 {
     self = [super init];
-    
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [locationManager startUpdatingLocation];
     coordinate.latitude = 41.894032;
     coordinate.longitude = -87.634742;
     return self;
