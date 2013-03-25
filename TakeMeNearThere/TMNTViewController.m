@@ -28,7 +28,11 @@
     __weak IBOutlet UITableView *flickrTableView;
     __weak IBOutlet MKMapView *myMapView;
     NSMutableArray *flickrData;
+    
+    
     NSString *nameOfPlace;
+    
+    
     NSString *clickedBusiness;
     NSString *clickedBusinessNeighborhood;
     NSString *clickedBusinessPhotoURL;
@@ -37,6 +41,7 @@
     NSString *clickedState;
     NSString *clickedZip;
     NSString *clickedPhone;
+    
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
     __weak IBOutlet UIActivityIndicatorView *annotationActivityIndicator;
@@ -56,7 +61,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
