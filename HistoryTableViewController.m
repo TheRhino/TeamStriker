@@ -80,4 +80,11 @@
     [super didReceiveMemoryWarning];
 }
 
+-(NSPredicate *)getViewPredicate
+{
+    NSPredicate *myPredicate = nil;
+    
+    return myPredicate;
+}
+
 @end
