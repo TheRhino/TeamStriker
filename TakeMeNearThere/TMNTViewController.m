@@ -40,6 +40,7 @@
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
     __weak IBOutlet UIActivityIndicatorView *annotationActivityIndicator;
+    __weak IBOutlet NSLayoutConstraint *mapViewVerticalConstraint;
 }
 @end
 
@@ -55,6 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -80,6 +82,7 @@
     yelpProcess.delegate = self;
     
     [yelpProcess getYelpJSON];
+    
 
     CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
     flickrTableView.transform = rotateTable;
@@ -140,6 +143,7 @@
         myAnnotation.place = [returnedArray objectAtIndex:i];
         //add to map
         [myMapView addAnnotation:myAnnotation];
+        
     }
 }
 
@@ -185,6 +189,7 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    
     TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
     myManagedObjectContext = appDelegate.managedObjectContext;
     
@@ -194,9 +199,6 @@
     clickedBusiness=[view.annotation title];
     clickedBusinessNeighborhood=[view.annotation subtitle];
     
-    
-    
-    //HEHE
     TMNTAnnotation *myAnnotation = (TMNTAnnotation *) view.annotation;
     NSLog(@"%@", myAnnotation.place.photoURLString);
     clickedBusinessPhotoURL=myAnnotation.place.photoURLString;
@@ -205,9 +207,6 @@
     clickedState = myAnnotation.place.state;
     clickedZip = myAnnotation.place.zip;
     clickedPhone = myAnnotation.place.phone;
-    
-    
-    //HEHE
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
     NSFetchRequest *fetchRequest =[[NSFetchRequest alloc] init];
@@ -236,7 +235,13 @@
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
 
-    //[self shrinkMapView];
+    [self shrinkMapView];
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view 
+{
+    [self expandMapView];
+
 }
 
 -(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
@@ -290,6 +295,7 @@
         [flickrReturnedArray addObject:flickrPlace];
     }
     return flickrReturnedArray;
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -303,12 +309,29 @@
     }
 }
 
--(void)shrinkMapView
+-(BOOL)shrinkMapView
 {
+    
     [MKMapView beginAnimations:nil context:nil];
     [MKMapView setAnimationDuration:.75];
-    myMapView.frame = CGRectMake(0, 0, 320, 375);
+//    myMapView.frame = CGRectMake(0, 0, 320, 375);
+    [mapViewVerticalConstraint setConstant:-80];
+    [myMapView layoutIfNeeded];
     [MKMapView commitAnimations];
+    return YES;
+    
+}
+
+-(void)expandMapView
+{
+    
+    [MKMapView beginAnimations:nil context:nil];
+    [MKMapView setAnimationDuration:.75];
+    //    myMapView.frame = CGRectMake(0, 0, 320, 375);
+    [mapViewVerticalConstraint setConstant:+80];
+    [myMapView layoutIfNeeded];
+    [MKMapView commitAnimations];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

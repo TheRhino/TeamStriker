@@ -44,6 +44,7 @@
          [self.delegate grabArrayFlickr:flickrPhotosArray];
          
      }];
+    
 }
 
 - (void)setArrayOfDictsFromFlickrJSONWithResponse:(NSURLResponse*)myResponse andData:(NSData*)myData andError:(NSError*)theirError

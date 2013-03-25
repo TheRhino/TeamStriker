@@ -12,7 +12,7 @@
 
 - (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary onImageView:(UIImageView *)imageView
 {
-    imageView.image = [UIImage imageNamed:@"imagetester.png"];
+    imageView.image = [UIImage imageNamed:@"loading_screen.jpg"];
     dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
     dispatch_async(myqueue, ^(void)
                    {
