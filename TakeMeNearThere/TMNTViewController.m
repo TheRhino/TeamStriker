@@ -39,6 +39,7 @@
     NSString *clickedPhone;
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
+    __weak IBOutlet UIActivityIndicatorView *annotationActivityIndicator;
 }
 @end
 
@@ -87,8 +88,10 @@
 
 - (void)grabArrayYelp:(NSArray *)data
 {
+    [annotationActivityIndicator startAnimating];
     yelpData = [self createPlacesArray:data];
     [self addPinsToMap];
+    [annotationActivityIndicator stopAnimating];
 }
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
@@ -191,6 +194,7 @@
     clickedBusinessNeighborhood=[view.annotation subtitle];
     
     
+    
     //HEHE
     TMNTAnnotation *myAnnotation = (TMNTAnnotation *) view.annotation;
     NSLog(@"%@", myAnnotation.place.photoURLString);
@@ -210,6 +214,8 @@
     TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
+    
+    [self shrinkMapView];
     
 }
 
@@ -235,6 +241,7 @@
 
 - (void)grabArrayFlickr:(NSArray *)data
 {
+    
     if (flickrPicturesDictionary != nil)
     {
         [flickrPicturesDictionary removeAllObjects];
@@ -242,6 +249,7 @@
     
     flickrData = [self createFlickrPlacesArray:data];
     [flickrTableView reloadData];
+    
 }
 
 - (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
@@ -276,6 +284,14 @@
     }
 }
 
+-(void)shrinkMapView
+{
+    [MKMapView beginAnimations:nil context:nil];
+    [MKMapView setAnimationDuration:.75];
+    myMapView.frame = CGRectMake(0, 0, 320, 375);
+    [MKMapView commitAnimations];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellID = @"cellIdentifierFlickr";
@@ -307,4 +323,6 @@
     
     return customCell;
 }
+
+
 @end
