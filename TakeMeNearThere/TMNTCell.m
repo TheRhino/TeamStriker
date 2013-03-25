@@ -13,6 +13,7 @@
 - (void)pullImageFromStringURL:(NSString *)urlString appendDictionary:(NSMutableDictionary *)dictionary onImageView:(UIImageView *)imageView
 {
     imageView.image = [UIImage imageNamed:@"toilet-inverted.jpg"];
+
     dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
     dispatch_async(myqueue, ^(void)
                    {

@@ -27,6 +27,7 @@
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC216EE976900308CBD /* TMNTLocation.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
+		B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7637A531700E622008F43C8 /* FavoritesTableViewController.m */; };
 		B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */ = {isa = PBXBuildFile; fileRef = B78F5A0816FA20AF00ABE3CA /* imagetester.png */; };
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EEC851700E921002F3DCF /* toilet-inverted.jpg */; };
@@ -94,10 +95,13 @@
 		8FBF3BC216EE976900308CBD /* TMNTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTLocation.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
+		B7637A521700E622008F43C8 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		B7637A531700E622008F43C8 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		B78F5A0816FA20AF00ABE3CA /* imagetester.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagetester.png; sourceTree = "<group>"; };
 		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F11EEC851700E921002F3DCF /* toilet-inverted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toilet-inverted.jpg"; sourceTree = SOURCE_ROOT; };
+
 		F168C7ED16F22E2B001AA169 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F168C7F716F23638001AA169 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewController.h; path = ../HistoryTableViewController.h; sourceTree = "<group>"; };
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 			children = (
 				F168C7F716F23638001AA169 /* HistoryTableViewController.h */,
 				F168C7F816F23638001AA169 /* HistoryTableViewController.m */,
+				B7637A521700E622008F43C8 /* FavoritesTableViewController.h */,
+				B7637A531700E622008F43C8 /* FavoritesTableViewController.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
 				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
 				F1A018AA16FA1DFA005BC9F9 /* BusinessViewController.h */,
@@ -331,6 +337,7 @@
 				8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */,
 				B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */,
 				F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +361,7 @@
 				F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */,
 				1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */,
 				1D2EA64A1700B19500A90F8D /* YelpClick.m in Sources */,
+				B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

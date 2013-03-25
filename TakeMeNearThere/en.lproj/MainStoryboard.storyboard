@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -163,7 +163,7 @@
                                     <constraint firstAttribute="width" constant="296" id="MJj-J1-Ugg"/>
                                     <constraint firstAttribute="height" constant="20" id="RcL-7f-Hc5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -171,7 +171,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3gT-jh-Jjq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -179,7 +179,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="MTB-kr-Cec"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -187,7 +187,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="XOE-N9-3zq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -197,26 +197,45 @@
                                     <constraint firstAttribute="width" constant="101" id="OsG-jJ-q9p"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9f-HJ-EuA">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="qLg-Hh-YDB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Add to Favorites">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cD9-cx-iaQ" kind="push" id="VtA-xj-c9S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A9n-jg-1BO" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" type="default" id="6TX-3s-0Bg"/>
+                            <constraint firstItem="Cnm-Ed-feZ" firstAttribute="leading" secondItem="SM8-Ts-Svn" secondAttribute="leading" constant="13" id="2lg-yy-Ndz"/>
+                            <constraint firstItem="dSK-ZZ-Y1w" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="37" id="9Fj-Q0-bcI"/>
+                            <constraint firstItem="u9f-HJ-EuA" firstAttribute="centerX" secondItem="A9n-jg-1BO" secondAttribute="centerX" type="default" id="A8s-bB-iOk"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="trailing" secondItem="EzI-Fz-wQm" secondAttribute="trailing" type="default" id="D0G-2q-hr0"/>
-                            <constraint firstItem="Cnm-Ed-feZ" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="27" id="ODM-2z-uMZ"/>
-                            <constraint firstItem="B0u-11-wsI" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="77" id="Oz2-G3-Fj4"/>
-                            <constraint firstItem="Cnm-Ed-feZ" firstAttribute="leading" secondItem="SM8-Ts-Svn" secondAttribute="leading" constant="9" id="Qys-45-18F"/>
+                            <constraint firstItem="A9n-jg-1BO" firstAttribute="centerX" secondItem="SM8-Ts-Svn" secondAttribute="centerX" type="default" id="Doc-8F-EF6"/>
+                            <constraint firstAttribute="bottom" secondItem="u9f-HJ-EuA" secondAttribute="bottom" constant="30" id="Sp7-tI-caq"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="leading" secondItem="Cnm-Ed-feZ" secondAttribute="leading" type="default" id="VBZ-cg-VE1"/>
-                            <constraint firstItem="dSK-ZZ-Y1w" firstAttribute="trailing" secondItem="SM8-Ts-Svn" secondAttribute="trailing" type="default" id="cR7-Vw-88E"/>
+                            <constraint firstItem="B0u-11-wsI" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="100" id="Ycr-0n-fA3"/>
+                            <constraint firstItem="Cnm-Ed-feZ" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="35" id="ZSg-u7-Hjx"/>
+                            <constraint firstItem="OZS-JK-JKX" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="56" id="bIW-WE-Kue"/>
                             <constraint firstItem="Cnm-Ed-feZ" firstAttribute="trailing" secondItem="OZS-JK-JKX" secondAttribute="trailing" type="default" id="kzH-eb-Oa2"/>
-                            <constraint firstItem="OZS-JK-JKX" firstAttribute="centerY" secondItem="dSK-ZZ-Y1w" secondAttribute="centerY" type="default" id="lVW-vv-JBd"/>
                             <constraint firstItem="B0u-11-wsI" firstAttribute="trailing" secondItem="EzI-Fz-wQm" secondAttribute="trailing" type="default" id="nCI-0m-oZO"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="leading" secondItem="EzI-Fz-wQm" secondAttribute="leading" type="default" id="pKL-ts-Iuh"/>
-                            <constraint firstItem="EzI-Fz-wQm" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="60" id="qb6-Aw-BVf"/>
-                            <constraint firstItem="dSK-ZZ-Y1w" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" type="default" id="vi9-rq-eNv"/>
-                            <constraint firstItem="A9n-jg-1BO" firstAttribute="leading" secondItem="SM8-Ts-Svn" secondAttribute="leading" constant="6" id="x8x-qY-vUj"/>
+                            <constraint firstItem="EzI-Fz-wQm" firstAttribute="trailing" secondItem="dSK-ZZ-Y1w" secondAttribute="trailing" type="default" id="upb-of-zEW"/>
+                            <constraint firstItem="EzI-Fz-wQm" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="78" id="uqG-Ai-LqC"/>
                             <constraint firstItem="B0u-11-wsI" firstAttribute="leading" secondItem="EzI-Fz-wQm" secondAttribute="leading" type="default" id="xDt-c7-E5V"/>
+                            <constraint firstItem="A9n-jg-1BO" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="3" id="zqa-OR-eCl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8oE-X6-k2X"/>
                     <connections>
                         <outlet property="businessImage" destination="dSK-ZZ-Y1w" id="tJm-B3-BQ1"/>
                         <outlet property="businessNameLabel" destination="A9n-jg-1BO" id="10c-bT-wCs"/>
@@ -268,6 +287,68 @@
             </objects>
             <point key="canvasLocation" x="1332" y="-1082"/>
         </scene>
+        <!--Favorites Table View Controller - History-->
+        <scene sceneID="MZV-yc-GFU">
+            <objects>
+                <viewController id="cD9-cx-iaQ" customClass="FavoritesTableViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cvj-IO-vLU">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XDR-Zc-cy8">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="512" id="644-cU-xWR"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clickHistoryCell" rowHeight="60" id="nvb-Xb-lZd">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXw-6t-k0b">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="289" id="Bxi-Qm-aWK"/>
+                                                        <constraint firstAttribute="height" constant="41" id="oqB-yF-Q0M"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="OXw-6t-k0b" firstAttribute="leading" secondItem="nvb-Xb-lZd" secondAttribute="leading" constant="20" type="default" id="Bjr-ki-meg"/>
+                                            <constraint firstItem="OXw-6t-k0b" firstAttribute="centerY" secondItem="nvb-Xb-lZd" secondAttribute="centerY" type="default" id="cYy-Gq-mh7"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cD9-cx-iaQ" id="t2g-ej-ti5"/>
+                                    <outlet property="delegate" destination="cD9-cx-iaQ" id="a4O-7a-FI9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XDR-Zc-cy8" firstAttribute="top" secondItem="Cvj-IO-vLU" secondAttribute="top" type="default" id="S6f-eT-VnZ"/>
+                            <constraint firstItem="XDR-Zc-cy8" firstAttribute="leading" secondItem="Cvj-IO-vLU" secondAttribute="leading" type="default" id="Z8s-TR-xgK"/>
+                            <constraint firstItem="XDR-Zc-cy8" firstAttribute="trailing" secondItem="Cvj-IO-vLU" secondAttribute="trailing" type="default" id="yUe-k4-FeN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="8Yo-MM-hZy"/>
+                    <navigationItem key="navigationItem" id="BZn-Ve-gAa"/>
+                    <connections>
+                        <outlet property="myTableView" destination="XDR-Zc-cy8" id="mlO-BA-S8R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWg-fU-V12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2937" y="-1082"/>
+        </scene>
     </scenes>
     <classes>
         <class className="BusinessViewController" superclassName="UIViewController">
@@ -281,6 +362,9 @@
                 <relationship kind="outlet" name="ratingReviewImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="streetAddress" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="FavoritesTableViewController" superclassName="HistoryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesTableViewController.h"/>
         </class>
         <class className="HistoryTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryTableViewController.h"/>

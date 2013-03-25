@@ -235,7 +235,7 @@
                  andLongitude:longitude];
     }
 
-    TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
+    TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"food" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
 

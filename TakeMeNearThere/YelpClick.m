@@ -15,5 +15,6 @@
 @dynamic longitude;
 @dynamic name;
 @dynamic timestamp;
+@dynamic favorite;
 
 @end
