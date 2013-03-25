@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2EA64A1700B19500A90F8D /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EA6491700B19500A90F8D /* YelpClick.m */; };
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
@@ -29,7 +30,6 @@
 		B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */ = {isa = PBXBuildFile; fileRef = B78F5A0816FA20AF00ABE3CA /* imagetester.png */; };
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F168C7EE16F22E2B001AA169 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */; };
-		F168C7F216F22EF4001AA169 /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = F168C7F116F22EF4001AA169 /* YelpClick.m */; };
 		F168C7F316F22FE9001AA169 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
 		F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F168C7F816F23638001AA169 /* HistoryTableViewController.m */; };
 		F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A018A516F8CBA8005BC9F9 /* TMNTFlickrPlace.m */; };
@@ -61,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2EA6481700B19500A90F8D /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
+		1D2EA6491700B19500A90F8D /* YelpClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClick.m; sourceTree = "<group>"; };
 		1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDataSourceDelegate.h; sourceTree = "<group>"; };
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
@@ -95,8 +97,6 @@
 		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F168C7ED16F22E2B001AA169 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		F168C7F016F22EF4001AA169 /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
-		F168C7F116F22EF4001AA169 /* YelpClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClick.m; sourceTree = "<group>"; };
 		F168C7F716F23638001AA169 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewController.h; path = ../HistoryTableViewController.h; sourceTree = "<group>"; };
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
 		F1A018A416F8CBA8005BC9F9 /* TMNTFlickrPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTFlickrPlace.h; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		1D45EF1C16FA677500E79CD4 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				F168C7F016F22EF4001AA169 /* YelpClick.h */,
-				F168C7F116F22EF4001AA169 /* YelpClick.m */,
+				1D2EA6481700B19500A90F8D /* YelpClick.h */,
+				1D2EA6491700B19500A90F8D /* YelpClick.m */,
 				F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -345,11 +345,11 @@
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
 				D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */,
 				F168C7EE16F22E2B001AA169 /* Model.xcdatamodeld in Sources */,
-				F168C7F216F22EF4001AA169 /* YelpClick.m in Sources */,
 				F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */,
 				F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */,
 				F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */,
 				1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */,
+				1D2EA64A1700B19500A90F8D /* YelpClick.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

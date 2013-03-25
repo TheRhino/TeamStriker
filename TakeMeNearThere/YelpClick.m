@@ -2,7 +2,7 @@
 //  YelpClick.m
 //  TakeMeNearThere
 //
-//  Created by Nirav Amin on 3/14/13.
+//  Created by Dexter Teng on 3/25/13.
 //  Copyright (c) 2013 Heroes in a Half Shell. All rights reserved.
 //
 
@@ -11,8 +11,9 @@
 
 @implementation YelpClick
 
-@dynamic name;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic name;
+@dynamic timestamp;
 
 @end

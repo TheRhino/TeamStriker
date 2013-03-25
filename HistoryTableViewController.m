@@ -16,33 +16,25 @@
 @interface HistoryTableViewController ()
 {
     NSArray* yelpHistory;
+    IBOutlet UITableView *myTableView;
 }
 
 @end
-
-
-
 
 @implementation HistoryTableViewController
 
 @synthesize myManagedObjectContext;
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     yelpHistory = [self getYelpHistory];
-	// Do any additional setup after loading the view.
+    [myTableView reloadData];
 }
 
 -(NSArray*)getYelpHistory
@@ -65,6 +57,7 @@
 
 {
     UITableViewCell *tableViewCell = [tableView dequeueReusableCellWithIdentifier:@"clickHistoryCell"];
+    
     if (tableViewCell == nil)
     {
         tableViewCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"clickHistoryCell"];
@@ -75,13 +68,16 @@
     
     yelpClickLabel.text = [[yelpHistory objectAtIndex:[indexPath row]]valueForKey:@"name"];
     return tableViewCell;
-    
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    yelpHistory = [self getYelpHistory];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

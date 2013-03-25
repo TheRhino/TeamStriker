@@ -18,7 +18,7 @@
 {
     CLLocationManager *locationManager;
 }
-@synthesize coordinate;
+@synthesize coordinate, locationManager = locationManager;
 
 //make our own version of cllocation, that currently is hard coded to MM
 - (TMNTLocation *)init

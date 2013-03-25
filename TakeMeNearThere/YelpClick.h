@@ -2,7 +2,7 @@
 //  YelpClick.h
 //  TakeMeNearThere
 //
-//  Created by Nirav Amin on 3/14/13.
+//  Created by Dexter Teng on 3/25/13.
 //  Copyright (c) 2013 Heroes in a Half Shell. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 
 @interface YelpClick : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * timestamp;
 
 @end

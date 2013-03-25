@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface HistoryTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITabBarControllerDelegate>
 
 @property NSManagedObjectContext *myManagedObjectContext;
 

@@ -20,7 +20,7 @@
 #import "BusinessViewController.h"
 #import "TMNTCell.h"
 
-@interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate>
+@interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
 {
     TMNTAPIProcessor *yelpProcess;
     TMNTLocation *mobileMakersLocation;
@@ -187,6 +187,7 @@
 {
     TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
     myManagedObjectContext = appDelegate.managedObjectContext;
+    
     NSNumber *latitude=[NSNumber numberWithFloat:[view.annotation coordinate].latitude];
     NSNumber *longitude=[NSNumber numberWithFloat:[view.annotation coordinate].longitude];
     TMNTLocation *clickedLocation = [[TMNTLocation alloc]initWithLatitude:[latitude floatValue] andLongitude:[longitude floatValue]];
@@ -208,15 +209,34 @@
     
     //HEHE
     
-    [self createYelpClick:[view.annotation title]
-             withLatitude:latitude
-             andLongitude:longitude];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
+    NSFetchRequest *fetchRequest =[[NSFetchRequest alloc] init];
+    NSError *error;
+    fetchRequest.entity = entityDescription;
+    NSArray *pastClicks = [myManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    int count = 0;
+    // REPLACE WITH PREDICATE LATER
+    for (YelpClick *pastClick in pastClicks)
+    {
+        if ([[view.annotation title] isEqualToString:pastClick.name])
+        {
+            count++;
+        }
+    }
+    
+    if (pastClicks.count == 0 || count == 0)
+    {
+        [self createYelpClick:[view.annotation title]
+                 withLatitude:latitude
+                 andLongitude:longitude];
+    }
+
     TMNTAPIProcessor *flickrAPIProcessor=[[TMNTAPIProcessor alloc]initWithFlickrSearch:@"restaurant,bathroom" andLocation:clickedLocation];
     flickrAPIProcessor.delegate=self;
     [flickrAPIProcessor getFlickrJSON];
-    
-    [self shrinkMapView];
-    
+
+    //[self shrinkMapView];
 }
 
 -(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
@@ -225,6 +245,7 @@
     yelpClick.name = name;
     yelpClick.latitude = latitude;
     yelpClick.longitude = longitude;
+    yelpClick.timestamp = [NSDate date];
     NSError *error;
     [self saveWithError:error];
 }
@@ -241,7 +262,6 @@
 
 - (void)grabArrayFlickr:(NSArray *)data
 {
-    
     if (flickrPicturesDictionary != nil)
     {
         [flickrPicturesDictionary removeAllObjects];
@@ -249,7 +269,6 @@
     
     flickrData = [self createFlickrPlacesArray:data];
     [flickrTableView reloadData];
-    
 }
 
 - (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
