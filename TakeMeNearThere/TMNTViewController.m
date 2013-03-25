@@ -355,14 +355,14 @@
     UIImageView *flickrImageView = (UIImageView*) viewThatsAnImage;
     customCell.contentView.backgroundColor = [UIColor blackColor];
     
+    CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+    flickrImageView.transform = rotateImage;
+    
     if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
     {
-        
         [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary onImageView:flickrImageView];
     } else
     {
-        CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
-        flickrImageView.transform = rotateImage;
         UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
         flickrImageView.image = existingImage;
     }

@@ -16,14 +16,13 @@
     dispatch_queue_t myqueue = dispatch_queue_create("pictureBuilderQueue", NULL);
     dispatch_async(myqueue, ^(void)
                    {
-                       CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
+                       
                        UIImage *flickrImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
                        [dictionary setValue:flickrImage forKey:urlString];
                        
                        dispatch_async(dispatch_get_main_queue(), ^(void)
                                       {
                                           imageView.image = flickrImage;
-                                          imageView.transform = rotateImage;
                                       });
                    });
     
