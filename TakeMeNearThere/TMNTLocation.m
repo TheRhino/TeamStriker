@@ -51,13 +51,7 @@
         
         [self startUpdatingLocations];
     }
-    
     return self;
-}
-
-- (BOOL) locationKnown
-{
-    return NO;
 }
 
 - (void)startUpdatingLocations
@@ -75,12 +69,9 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation* newestLocation = [locations objectAtIndex:0];
-    NSLog(@"Hello world");
     if ( abs([newestLocation.timestamp timeIntervalSinceDate:[NSDate date]]) < 120)
     {
         self.coordinate = newestLocation.coordinate;
-        NSLog(@"THIS IS THE LONGITUDE DUDE MOOD: %f", self.coordinate.longitude);
-        
     }
 }
 

@@ -26,7 +26,6 @@
                                           imageView.image = flickrImage;
                                       });
                    });
-    
 }
 
 - (TMNTCell *)initWithStyle:(UITableViewCellStyle)uiTableViewCellStyle reuseIdentifier:(NSString *)cellID

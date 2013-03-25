@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *returnedArray;
 @property (strong, nonatomic) NSMutableArray *flickrReturnedArray;
 @property NSManagedObjectContext *myManagedObjectContext;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 
 -(void)addPinsToMap;

@@ -29,9 +29,7 @@
     __weak IBOutlet MKMapView *myMapView;
     NSMutableArray *flickrData;
     
-    
     NSString *nameOfPlace;
-    
     
     NSString *clickedBusiness;
     NSString *clickedBusinessNeighborhood;
@@ -54,8 +52,9 @@
 @synthesize myManagedObjectContext;
 @synthesize flickrReturnedArray;
 @synthesize returnedArray;
+@synthesize locationManager;
 
-#pragma mark View stuff
+#pragma mark Loading
 
 
 - (void)viewDidLoad
@@ -93,6 +92,19 @@
     flickrTableView.backgroundColor = [UIColor blackColor];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BusinessViewController *businessPage=[segue destinationViewController];
+    businessPage.businessName = clickedBusiness;
+    businessPage.neighborhoodName = clickedBusinessNeighborhood;
+    businessPage.businessURL = clickedBusinessPhotoURL;
+    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
+    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
+    businessPage.businessphone = clickedPhone;
+}
+
+#pragma mark API delegates
+
 - (void)grabArrayYelp:(NSArray *)data
 {
     [annotationActivityIndicator startAnimating];
@@ -100,6 +112,20 @@
     [self addPinsToMap];
     [annotationActivityIndicator stopAnimating];
 }
+
+
+- (void)grabArrayFlickr:(NSArray *)data
+{
+    if (flickrPicturesDictionary != nil)
+    {
+        [flickrPicturesDictionary removeAllObjects];
+    }
+    
+    flickrData = [self createFlickrPlacesArray:data];
+    [flickrTableView reloadData];
+}
+
+#pragma mark Data creation
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
 {
@@ -125,6 +151,41 @@
     }
     return returnedArray;
 }
+
+- (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
+{
+    flickrReturnedArray =[[NSMutableArray alloc]init];
+    for (NSDictionary *placeDictionary in flickrPlacesData)
+    {
+        float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
+        float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
+        NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
+        NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
+        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
+        
+        TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
+        flickrPlace.name = [placeDictionary valueForKey:@"name"];
+        flickrPlace.location = placeLocation;
+        flickrPlace.urlString = urlStringFlickr;
+        flickrPlace.urlStringThumbnail = urlStringFlickrThumbnail;
+        [flickrReturnedArray addObject:flickrPlace];
+    }
+    return flickrReturnedArray;
+    
+}
+
+-(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
+{
+    YelpClick *yelpClick = [NSEntityDescription insertNewObjectForEntityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
+    yelpClick.name = name;
+    yelpClick.latitude = latitude;
+    yelpClick.longitude = longitude;
+    yelpClick.timestamp = [NSDate date];
+    NSError *error;
+    [self saveWithError:error];
+}
+
+#pragma mark MapView methods
 
 -(void)addPinsToMap
 {
@@ -180,16 +241,7 @@
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    BusinessViewController *businessPage=[segue destinationViewController];
-    businessPage.businessName = clickedBusiness;
-    businessPage.neighborhoodName = clickedBusinessNeighborhood;
-    businessPage.businessURL = clickedBusinessPhotoURL;
-    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
-    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
-    businessPage.businessphone = clickedPhone;
-}
+
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
@@ -248,77 +300,12 @@
 
 }
 
--(void)createYelpClick:(NSString*)name withLatitude:(NSNumber*)latitude andLongitude:(NSNumber*)longitude
-{
-    YelpClick *yelpClick = [NSEntityDescription insertNewObjectForEntityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
-    yelpClick.name = name;
-    yelpClick.latitude = latitude;
-    yelpClick.longitude = longitude;
-    yelpClick.timestamp = [NSDate date];
-    NSError *error;
-    [self saveWithError:error];
-}
-
--(void)saveWithError:(NSError*)error
-{
-    if (![self.myManagedObjectContext save:&error])
-    {
-        NSLog(@"Failed because:%@",[error userInfo]);
-    }
-}
-
-#pragma mark Flickr stuff
-
-- (void)grabArrayFlickr:(NSArray *)data
-{
-    if (flickrPicturesDictionary != nil)
-    {
-        [flickrPicturesDictionary removeAllObjects];
-    }
-    
-    flickrData = [self createFlickrPlacesArray:data];
-    [flickrTableView reloadData];
-}
-
-- (NSMutableArray *)createFlickrPlacesArray:(NSArray*)flickrPlacesData
-{
-    flickrReturnedArray =[[NSMutableArray alloc]init];
-    for (NSDictionary *placeDictionary in flickrPlacesData)
-    {
-        float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
-        float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
-        NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
-        NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
-        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
-        
-        TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
-        flickrPlace.name = [placeDictionary valueForKey:@"name"];
-        flickrPlace.location = placeLocation;
-        flickrPlace.urlString = urlStringFlickr;
-        flickrPlace.urlStringThumbnail = urlStringFlickrThumbnail;
-        [flickrReturnedArray addObject:flickrPlace];
-    }
-    return flickrReturnedArray;
-
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (flickrData == nil)
-    {
-        return 0;
-    } else
-    {
-        return flickrData.count;
-    }
-}
-
 -(BOOL)shrinkMapView
 {
     
     [MKMapView beginAnimations:nil context:nil];
     [MKMapView setAnimationDuration:.75];
-//    myMapView.frame = CGRectMake(0, 0, 320, 375);
+    //    myMapView.frame = CGRectMake(0, 0, 320, 375);
     [mapViewVerticalConstraint setConstant:-80];
     [myMapView layoutIfNeeded];
     [MKMapView commitAnimations];
@@ -337,6 +324,28 @@
     [MKMapView commitAnimations];
     
 }
+
+-(void)saveWithError:(NSError*)error
+{
+    if (![self.myManagedObjectContext save:&error])
+    {
+        NSLog(@"Failed because:%@",[error userInfo]);
+    }
+}
+
+#pragma mark Flickr TableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (flickrData == nil)
+    {
+        return 0;
+    } else
+    {
+        return flickrData.count;
+    }
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
