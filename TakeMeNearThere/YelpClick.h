@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * timestamp;
-@property (nonatomic, retain) NSString *favorite;
+@property (nonatomic, retain) NSString * favorite;
 
 @end

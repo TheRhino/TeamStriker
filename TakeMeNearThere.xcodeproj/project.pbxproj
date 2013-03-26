@@ -16,9 +16,6 @@
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
 		8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9016EE94E500308CBD /* InfoPlist.strings */; };
 		8FBF3B9416EE94E500308CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9316EE94E500308CBD /* main.m */; };
-		8FBF3B9A16EE94E500308CBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9916EE94E500308CBD /* Default.png */; };
-		8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9B16EE94E500308CBD /* Default@2x.png */; };
-		8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */; };
 		8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */; };
 		8FBF3BB716EE96A400308CBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB616EE96A400308CBD /* MapKit.framework */; };
 		8FBF3BBB16EE96B200308CBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BBA16EE96B200308CBD /* QuartzCore.framework */; };
@@ -29,6 +26,8 @@
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
 		B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7637A531700E622008F43C8 /* FavoritesTableViewController.m */; };
 		B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */ = {isa = PBXBuildFile; fileRef = B78F5A0816FA20AF00ABE3CA /* imagetester.png */; };
+		B79169BF170173EF00AE5EBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B79169BE170173EF00AE5EBC /* Default@2x.png */; };
+		B79169C11701756200AE5EBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B79169C01701756200AE5EBC /* Default-568h@2x.png */; };
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EEC851700E921002F3DCF /* toilet-inverted.jpg */; };
 		F168C7EE16F22E2B001AA169 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */; };
@@ -79,9 +78,6 @@
 		8FBF3B9116EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FBF3B9316EE94E500308CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TakeMeNearThere-Prefix.pch"; sourceTree = "<group>"; };
-		8FBF3B9916EE94E500308CBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8FBF3B9B16EE94E500308CBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8FBF3BA016EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
 		8FBF3BB616EE96A400308CBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -98,10 +94,11 @@
 		B7637A521700E622008F43C8 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		B7637A531700E622008F43C8 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		B78F5A0816FA20AF00ABE3CA /* imagetester.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagetester.png; sourceTree = "<group>"; };
+		B79169BE170173EF00AE5EBC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B79169C01701756200AE5EBC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F11EEC851700E921002F3DCF /* toilet-inverted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toilet-inverted.jpg"; sourceTree = SOURCE_ROOT; };
-
 		F168C7ED16F22E2B001AA169 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F168C7F716F23638001AA169 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewController.h; path = ../HistoryTableViewController.h; sourceTree = "<group>"; };
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
@@ -232,15 +229,14 @@
 		8FBF3B8E16EE94E500308CBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B79169C01701756200AE5EBC /* Default-568h@2x.png */,
+				B79169BE170173EF00AE5EBC /* Default@2x.png */,
 				F11EEC851700E921002F3DCF /* toilet-inverted.jpg */,
 				8FBF3B8F16EE94E500308CBD /* TakeMeNearThere-Info.plist */,
 				8FBF3B9016EE94E500308CBD /* InfoPlist.strings */,
 				8FBF3B9316EE94E500308CBD /* main.m */,
 				8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */,
-				8FBF3B9916EE94E500308CBD /* Default.png */,
 				B78F5A0816FA20AF00ABE3CA /* imagetester.png */,
-				8FBF3B9B16EE94E500308CBD /* Default@2x.png */,
-				8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -331,13 +327,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */,
-				8FBF3B9A16EE94E500308CBD /* Default.png in Resources */,
-				8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */,
-				8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */,
 				8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */,
 				B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */,
 				F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */,
-
+				B79169BF170173EF00AE5EBC /* Default@2x.png in Resources */,
+				B79169C11701756200AE5EBC /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
