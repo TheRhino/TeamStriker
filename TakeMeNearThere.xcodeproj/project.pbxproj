@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D2EA64A1700B19500A90F8D /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EA6491700B19500A90F8D /* YelpClick.m */; };
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
@@ -16,9 +15,6 @@
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
 		8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9016EE94E500308CBD /* InfoPlist.strings */; };
 		8FBF3B9416EE94E500308CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9316EE94E500308CBD /* main.m */; };
-		8FBF3B9A16EE94E500308CBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9916EE94E500308CBD /* Default.png */; };
-		8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9B16EE94E500308CBD /* Default@2x.png */; };
-		8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */; };
 		8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */; };
 		8FBF3BB716EE96A400308CBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB616EE96A400308CBD /* MapKit.framework */; };
 		8FBF3BBB16EE96B200308CBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BBA16EE96B200308CBD /* QuartzCore.framework */; };
@@ -27,8 +23,12 @@
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC216EE976900308CBD /* TMNTLocation.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
+		B738FC0617023E9000452FBD /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = B738FC0517023E9000452FBD /* YelpClick.m */; };
 		B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7637A531700E622008F43C8 /* FavoritesTableViewController.m */; };
 		B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */ = {isa = PBXBuildFile; fileRef = B78F5A0816FA20AF00ABE3CA /* imagetester.png */; };
+		B79169BF170173EF00AE5EBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B79169BE170173EF00AE5EBC /* Default@2x.png */; };
+		B79169C11701756200AE5EBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B79169C01701756200AE5EBC /* Default-568h@2x.png */; };
+		B798DD19170228E700D73CE2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B798DD18170228E700D73CE2 /* Default.png */; };
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EEC851700E921002F3DCF /* toilet-inverted.jpg */; };
 		F11EECA21701EA14002F3DCF /* ReviewPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EECA11701EA14002F3DCF /* ReviewPic.jpg */; };
@@ -64,8 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D2EA6481700B19500A90F8D /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
-		1D2EA6491700B19500A90F8D /* YelpClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClick.m; sourceTree = "<group>"; };
 		1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDataSourceDelegate.h; sourceTree = "<group>"; };
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
@@ -80,9 +78,6 @@
 		8FBF3B9116EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FBF3B9316EE94E500308CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TakeMeNearThere-Prefix.pch"; sourceTree = "<group>"; };
-		8FBF3B9916EE94E500308CBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8FBF3B9B16EE94E500308CBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8FBF3BA016EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
 		8FBF3BB616EE96A400308CBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -96,9 +91,14 @@
 		8FBF3BC216EE976900308CBD /* TMNTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTLocation.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
+		B738FC0417023E9000452FBD /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
+		B738FC0517023E9000452FBD /* YelpClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClick.m; sourceTree = "<group>"; };
 		B7637A521700E622008F43C8 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		B7637A531700E622008F43C8 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		B78F5A0816FA20AF00ABE3CA /* imagetester.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagetester.png; sourceTree = "<group>"; };
+		B79169BE170173EF00AE5EBC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B79169C01701756200AE5EBC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B798DD18170228E700D73CE2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F11EEC851700E921002F3DCF /* toilet-inverted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toilet-inverted.jpg"; sourceTree = SOURCE_ROOT; };
@@ -149,9 +149,9 @@
 		1D45EF1C16FA677500E79CD4 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				1D2EA6481700B19500A90F8D /* YelpClick.h */,
-				1D2EA6491700B19500A90F8D /* YelpClick.m */,
 				F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */,
+				B738FC0417023E9000452FBD /* YelpClick.h */,
+				B738FC0517023E9000452FBD /* YelpClick.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -233,16 +233,16 @@
 		8FBF3B8E16EE94E500308CBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B798DD18170228E700D73CE2 /* Default.png */,
+				B79169C01701756200AE5EBC /* Default-568h@2x.png */,
+				B79169BE170173EF00AE5EBC /* Default@2x.png */,
 				F11EEC851700E921002F3DCF /* toilet-inverted.jpg */,
 				F11EECA11701EA14002F3DCF /* ReviewPic.jpg */,
 				8FBF3B8F16EE94E500308CBD /* TakeMeNearThere-Info.plist */,
 				8FBF3B9016EE94E500308CBD /* InfoPlist.strings */,
 				8FBF3B9316EE94E500308CBD /* main.m */,
 				8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */,
-				8FBF3B9916EE94E500308CBD /* Default.png */,
 				B78F5A0816FA20AF00ABE3CA /* imagetester.png */,
-				8FBF3B9B16EE94E500308CBD /* Default@2x.png */,
-				8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -333,13 +333,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */,
-				8FBF3B9A16EE94E500308CBD /* Default.png in Resources */,
-				8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */,
-				8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */,
 				8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */,
 				B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */,
 				F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */,
 				F11EECA21701EA14002F3DCF /* ReviewPic.jpg in Resources */,
+				B79169BF170173EF00AE5EBC /* Default@2x.png in Resources */,
+				B79169C11701756200AE5EBC /* Default-568h@2x.png in Resources */,
+				B798DD19170228E700D73CE2 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +362,8 @@
 				F1A018A616F8CBA8005BC9F9 /* TMNTFlickrPlace.m in Sources */,
 				F1A018AC16FA1DFA005BC9F9 /* BusinessViewController.m in Sources */,
 				1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */,
-				1D2EA64A1700B19500A90F8D /* YelpClick.m in Sources */,
 				B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */,
+				B738FC0617023E9000452FBD /* YelpClick.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

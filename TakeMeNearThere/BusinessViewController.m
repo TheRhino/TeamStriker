@@ -7,6 +7,9 @@
 //
 
 #import "BusinessViewController.h"
+#import "YelpClick.h"
+#import <CoreLocation/CoreLocation.h>
+#import "TMNTAppDelegate.h"
 
 
 @interface BusinessViewController ()
@@ -23,13 +26,15 @@
     IBOutlet UILabel *category;
     IBOutlet UIImageView *reviewPic;
     
-    
 }
+
+-(IBAction)favorite:(id)sender;
 
 @end
 
 @implementation BusinessViewController 
 
+@synthesize myManagedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +59,38 @@
     category.text = self.businessCategory;
     distance.text = self.distanceFromCurrentLocation;
 	// Do any additional setup after loading the view.
+}
+
+-(IBAction)favorite:(id)sender
+{
+    TMNTAppDelegate *appDelegate = (TMNTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    myManagedObjectContext = appDelegate.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
+    NSFetchRequest *fetchRequest =[[NSFetchRequest alloc] init];
+    NSError *error;
+    fetchRequest.entity = entityDescription;
+    NSArray *pastClicks = [myManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // REPLACE WITH PREDICATE LATER
+    for (YelpClick *pastClick in pastClicks)
+    {
+        if ([pastClick.name isEqualToString:self.businessName])
+        {
+            pastClick.favorite = [NSNumber numberWithBool:YES];
+            NSError *error;
+            [self saveWithError:error];
+        }
+
+    }
+    
+}
+
+-(void)saveWithError:(NSError*)error
+{
+    if (![self.myManagedObjectContext save:&error])
+    {
+        NSLog(@"Failed because:%@",[error userInfo]);
+    }
 }
 
 - (void)didReceiveMemoryWarning

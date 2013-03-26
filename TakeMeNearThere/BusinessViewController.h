@@ -20,5 +20,6 @@
 @property (strong, nonatomic) NSString *businessCategory;
 @property (strong, nonatomic) NSString *distanceFromCurrentLocation;
 
+@property NSManagedObjectContext *myManagedObjectContext;
 
 @end

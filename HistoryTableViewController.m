@@ -40,6 +40,8 @@
     myManagedObjectContext = appDelegate.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
     NSFetchRequest *fetchRequest =[[NSFetchRequest alloc]init];
+    
+    fetchRequest.predicate = [self getViewPredicate];
     NSError *error;
     fetchRequest.entity = entityDescription;
     return [myManagedObjectContext executeFetchRequest:fetchRequest error:&error];

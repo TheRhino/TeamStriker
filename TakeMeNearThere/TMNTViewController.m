@@ -332,15 +332,22 @@
 
 -(int)shrinkMapView
 {
-    
     [MKMapView beginAnimations:nil context:nil];
     [MKMapView setAnimationDuration:.75];
     //    myMapView.frame = CGRectMake(0, 0, 320, 375);
     [mapViewVerticalConstraint setConstant:-80];
     [myMapView layoutIfNeeded];
     [MKMapView commitAnimations];
-    
-    
+
+}
+
+-(void)saveWithError:(NSError*)error
+{
+    if (![self.myManagedObjectContext save:&error])
+    {
+        NSLog(@"Failed because:%@",[error userInfo]);
+    }
+
 }
 
 -(void)expandMapView
@@ -355,13 +362,7 @@
     
 }
 
--(void)saveWithError:(NSError*)error
-{
-    if (![self.myManagedObjectContext save:&error])
-    {
-        NSLog(@"Failed because:%@",[error userInfo]);
-    }
-}
+
 
 #pragma mark Flickr TableView
 
