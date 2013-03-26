@@ -23,6 +23,9 @@
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *zip;
 @property (strong, nonatomic) NSString *phone;
+@property (strong, nonatomic) NSNumber *rating;
+@property (strong, nonatomic) NSString *category;
+
 
 
 @end

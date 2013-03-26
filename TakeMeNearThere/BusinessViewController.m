@@ -18,6 +18,10 @@
     IBOutlet UILabel *cityStateZip;
     IBOutlet UIImageView *ratingReviewImage;
     IBOutlet UILabel *phone;
+    IBOutlet UILabel *rating;
+    IBOutlet UILabel *distance;
+    IBOutlet UILabel *category;
+    IBOutlet UIImageView *reviewPic;
     
     
 }
@@ -39,13 +43,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [reviewPic setImage:[UIImage imageNamed:@"ReviewPic.jpg"]];
     businessNameLabel.text=self.businessName;
     neighborhoodLabel.text=self.neighborhoodName;
     businessImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.businessURL]]];
     streetAddress.text = self.businessStreetAddress;
     cityStateZip.text = self.businessCityStateZip;
     phone.text = self.businessphone;
-    
+    rating.text= [NSString stringWithFormat:@"%@",self.averageRating];
+    category.text = self.businessCategory;
+    distance.text = self.distanceFromCurrentLocation;
 	// Do any additional setup after loading the view.
 }
 
