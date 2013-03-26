@@ -255,6 +255,7 @@
     yelpClick.latitude = latitude;
     yelpClick.longitude = longitude;
     yelpClick.timestamp = [NSDate date];
+    yelpClick.favorite = 0;
     NSError *error;
     [self saveWithError:error];
 }

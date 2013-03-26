@@ -36,6 +36,7 @@
 - (NSPredicate *)getViewPredicate
 {
     NSPredicate *myPredicate = [NSPredicate predicateWithFormat:@"favorite == true"];
+    
     return myPredicate;
 }
 

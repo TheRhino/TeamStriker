@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *businessStreetAddress;
 @property (strong, nonatomic) NSString *businessCityStateZip;
 @property (strong, nonatomic) NSString *businessphone;
+@property NSManagedObjectContext *myManagedObjectContext;
 
 @end
