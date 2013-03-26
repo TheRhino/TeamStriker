@@ -296,8 +296,7 @@
     fetchRequest.entity = entityDescription;
     NSArray *pastClicks = [myManagedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    pinCount ++;
-    return pinCount;
+    
     
     int count = 0;
     // REPLACE WITH PREDICATE LATER
@@ -330,7 +329,7 @@
 
 }
 
--(int)shrinkMapView
+-(void)shrinkMapView
 {
     [MKMapView beginAnimations:nil context:nil];
     [MKMapView setAnimationDuration:.75];
