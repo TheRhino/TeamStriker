@@ -39,11 +39,15 @@
     NSString *clickedState;
     NSString *clickedZip;
     NSString *clickedPhone;
+    NSString *clickedRating;
+    NSString *clickedCategory;
+    NSString *clickedBusinessDistanceFromCurrentLocation;
     
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
     __weak IBOutlet UIActivityIndicatorView *annotationActivityIndicator;
     __weak IBOutlet NSLayoutConstraint *mapViewVerticalConstraint;
+    
 }
 @end
 
@@ -92,16 +96,16 @@
     flickrTableView.backgroundColor = [UIColor blackColor];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    BusinessViewController *businessPage=[segue destinationViewController];
-    businessPage.businessName = clickedBusiness;
-    businessPage.neighborhoodName = clickedBusinessNeighborhood;
-    businessPage.businessURL = clickedBusinessPhotoURL;
-    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
-    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
-    businessPage.businessphone = clickedPhone;
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    BusinessViewController *businessPage=[segue destinationViewController];
+//    businessPage.businessName = clickedBusiness;
+//    businessPage.neighborhoodName = clickedBusinessNeighborhood;
+//    businessPage.businessURL = clickedBusinessPhotoURL;
+//    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
+//    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
+//    businessPage.businessphone = clickedPhone;
+//}
 
 #pragma mark API delegates
 
@@ -146,6 +150,9 @@
         place.state=[placeDictionary valueForKey:@"state"];
         place.zip = [placeDictionary valueForKey:@"zip"];
         place.phone=[placeDictionary valueForKey:@"phone"];
+        place.rating = [placeDictionary valueForKey:@"avg_rating"];
+        place.category = [[[placeDictionary valueForKey:@"categories"]objectAtIndex:0]valueForKey:@"name"];
+//        place.distance = [NSString][placeDictionary valueForKey:@"distance"];
         place.location = placeLocation;
         [returnedArray addObject:place];
     }
@@ -241,6 +248,19 @@
     
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BusinessViewController *businessPage=[segue destinationViewController];
+    businessPage.businessName = clickedBusiness;
+    businessPage.neighborhoodName = clickedBusinessNeighborhood;
+    businessPage.businessURL = clickedBusinessPhotoURL;
+    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
+    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
+    businessPage.businessphone = clickedPhone;
+    businessPage.averageRating = clickedRating;
+    businessPage.businessCategory = clickedCategory;
+    businessPage.distanceFromCurrentLocation = clickedBusinessDistanceFromCurrentLocation;
+}
 
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -263,6 +283,9 @@
     clickedState = myAnnotation.place.state;
     clickedZip = myAnnotation.place.zip;
     clickedPhone = myAnnotation.place.phone;
+    clickedRating = myAnnotation.place.rating;
+    clickedCategory = myAnnotation.place.category;
+//    clickedBusinessDistanceFromCurrentLocation = myAnnotation.place.distance;
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
     NSFetchRequest *fetchRequest =[[NSFetchRequest alloc] init];

@@ -16,5 +16,8 @@
 @property (strong, nonatomic) NSString *businessStreetAddress;
 @property (strong, nonatomic) NSString *businessCityStateZip;
 @property (strong, nonatomic) NSString *businessphone;
+@property (strong, nonatomic) NSNumber *averageRating;
+@property (strong, nonatomic) NSString *businessCategory;
+@property (strong, nonatomic) NSString *distanceFromCurrentLocation;
 
 @end
