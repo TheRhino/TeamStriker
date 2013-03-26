@@ -20,7 +20,7 @@
 //    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%f&lon=%f&radius=0.1&extras=url_t%@+url_m%@C+geo", search, userLocation.coordinate.latitude, userLocation.coordinate.longitude, @"%2C", @"%2C"];
 //    return self;
     
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8a98738f5a99d81cde0c89ee1a9cd5fd&user_id=94174680%@N05&lat=%f&lon=%f&radius=.2&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", userLocation.coordinate.latitude, userLocation.coordinate.longitude, @"%2C", @"%2C"];
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&user_id=94174680%@N05&lat=%f&lon=%f&radius=1&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", userLocation.coordinate.latitude, userLocation.coordinate.longitude, @"%2C", @"%2C"];
     return self;
     
      
@@ -29,7 +29,7 @@
 //api method call for yelp
 - (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(TMNTLocation*)userLocation
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=0.5&limit=10&ywsid=9cXr2PbBLAZazMuJWM8pLw",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude];
+    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=0.5&limit=10&ywsid=aWCgjSUCSN9F5JAqLZ8NBw",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude];
     return self;
 }
 

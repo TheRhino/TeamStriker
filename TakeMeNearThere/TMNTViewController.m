@@ -43,6 +43,8 @@
     NSString *clickedCategory;
     NSString *clickedBusinessDistanceFromCurrentLocation;
     
+    int pinCount;
+    
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
     __weak IBOutlet UIActivityIndicatorView *annotationActivityIndicator;
@@ -64,6 +66,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    pinCount = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -263,7 +266,7 @@
 }
 
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+- (int)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     
     TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -293,6 +296,9 @@
     fetchRequest.entity = entityDescription;
     NSArray *pastClicks = [myManagedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    pinCount ++;
+    return pinCount;
+    
     int count = 0;
     // REPLACE WITH PREDICATE LATER
     for (YelpClick *pastClick in pastClicks)
@@ -319,11 +325,12 @@
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view 
 {
+    
     [self expandMapView];
 
 }
 
--(BOOL)shrinkMapView
+-(int)shrinkMapView
 {
     
     [MKMapView beginAnimations:nil context:nil];
@@ -332,7 +339,7 @@
     [mapViewVerticalConstraint setConstant:-80];
     [myMapView layoutIfNeeded];
     [MKMapView commitAnimations];
-    return YES;
+    
     
 }
 

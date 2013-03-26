@@ -28,7 +28,7 @@
 
 @end
 
-@implementation BusinessViewController
+@implementation BusinessViewController 
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

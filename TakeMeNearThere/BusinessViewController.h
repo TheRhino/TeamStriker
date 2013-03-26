@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BusinessViewController : UIViewController
+@interface BusinessViewController : UIViewController 
 
 @property (strong, nonatomic) NSString *businessName;
 @property (strong, nonatomic) NSString *neighborhoodName;
@@ -19,5 +19,6 @@
 @property (strong, nonatomic) NSNumber *averageRating;
 @property (strong, nonatomic) NSString *businessCategory;
 @property (strong, nonatomic) NSString *distanceFromCurrentLocation;
+
 
 @end
