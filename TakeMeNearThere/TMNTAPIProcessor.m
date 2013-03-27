@@ -56,6 +56,7 @@
     stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&radius=0.25&lat=%f&long=%f&limit=10&ywsid=SHvJpobPrBabhrCyJ8FMag",search, location.coordinate.latitude, location.coordinate.longitude];
     return self;
 }
+
 - (void) getFlickrJSON
 {
     NSURLRequest* flickrRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stringAPICall]];
