@@ -26,7 +26,26 @@
         managedObjectContext = [[NSManagedObjectContext alloc]init];
         managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator;
     }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.window.bounds];
+    UIImage *image = [UIImage imageNamed:@"Default.png"];
+    if(!image)
+    {
+        NSLog(@"We failed at loading");
+    }
+    
+    imageView.image = image;
+    [self.window addSubview:imageView];
+    [self.window makeKeyAndVisible];
+    [self.window bringSubviewToFront:imageView];
+    [self performSelector:@selector(removeSplash:) withObject:imageView afterDelay:4];
+    
     return YES;
+}
+
+- (void)removeSplash:(UIImageView *)splashView
+{
+    [splashView removeFromSuperview];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

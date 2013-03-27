@@ -215,7 +215,8 @@
         MKCoordinateRegion myRegion = {userLocation.coordinate, span};
         [myMapView setRegion:myRegion];
         
-    } else
+    }
+    else
     {
         MKCoordinateRegion myRegion = {userLocation.coordinate, myMapView.region.span};
         [myMapView setRegion:myRegion];
@@ -308,7 +309,6 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [self performSegueWithIdentifier:@"annotationToNextViewController" sender:self];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
