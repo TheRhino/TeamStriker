@@ -10,7 +10,7 @@
 #import "TMNTDataSourceDelegate.h"
 
 
-@interface TMNTViewController : UIViewController <TMNTDataSourceDelegate>
+@interface TMNTViewController : UIViewController <TMNTDataSourceDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *returnedArray;
 @property (strong, nonatomic) NSMutableArray *flickrReturnedArray;

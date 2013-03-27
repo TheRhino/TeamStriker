@@ -23,7 +23,8 @@
 @interface TMNTViewController ()<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
 {
     TMNTAPIProcessor *yelpProcess;
-    TMNTLocation *mobileMakersLocation;
+    CLLocation *userLocation;
+    BOOL firstTimeRunning;
     
     __weak IBOutlet UITableView *flickrTableView;
     __weak IBOutlet MKMapView *myMapView;
@@ -64,6 +65,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    firstTimeRunning = YES;
+    
+    userLocation = [[CLLocation alloc] init];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self startUpdatingLocations];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,41 +80,11 @@
     [super viewWillAppear:animated];
 
     flickrPicturesDictionary = [NSMutableDictionary dictionary];
-    mobileMakersLocation = [[TMNTLocation alloc] init];
-    
-    //make region our area
-    MKCoordinateSpan span =
-    {
-        .latitudeDelta = 0.01410686f,
-        .longitudeDelta = 0.01410686f
-    };
-    
-    MKCoordinateRegion myRegion = {mobileMakersLocation.coordinate, span};
-    //set region to mapview
-    [myMapView setRegion:myRegion];
-    
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:mobileMakersLocation];
-    
-    yelpProcess.delegate = self;
-    
-    [yelpProcess getYelpJSON];
-    
 
     CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
     flickrTableView.transform = rotateTable;
     flickrTableView.backgroundColor = [UIColor blackColor];
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    BusinessViewController *businessPage=[segue destinationViewController];
-//    businessPage.businessName = clickedBusiness;
-//    businessPage.neighborhoodName = clickedBusinessNeighborhood;
-//    businessPage.businessURL = clickedBusinessPhotoURL;
-//    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
-//    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
-//    businessPage.businessphone = clickedPhone;
-//}
 
 #pragma mark API delegates
 
@@ -139,11 +118,16 @@
     {
         float placeLatitude = [[placeDictionary valueForKey:@"latitude"] floatValue];
         float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
-        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
+        CLLocation *placeLocation = [[CLLocation alloc] initWithLatitude:placeLatitude longitude:placeLongitude];
         
         TMNTPlace *place = [[TMNTPlace alloc] init];
         place.name = [placeDictionary valueForKey:@"name"];
-        place.neighborhood=[[[placeDictionary valueForKey:@"neighborhoods"]objectAtIndex:0]valueForKey:@"name"];
+        
+        if ([[placeDictionary valueForKey:@"neighborhoods"] count] > 0)
+        {
+            place.neighborhood = [[[placeDictionary valueForKey:@"neighborhoods"] objectAtIndex:0] valueForKey:@"name"];
+        }
+        
         place.photoURLString=[placeDictionary valueForKey:@"photo_url"];
         place.streetAddress=[placeDictionary valueForKey:@"address1"];
         place.city=[placeDictionary valueForKey:@"city"];
@@ -152,6 +136,7 @@
         place.phone=[placeDictionary valueForKey:@"phone"];
         place.rating = [placeDictionary valueForKey:@"avg_rating"];
         place.category = [[[placeDictionary valueForKey:@"categories"]objectAtIndex:0]valueForKey:@"name"];
+        
 //        place.distance = [NSString][placeDictionary valueForKey:@"distance"];
         place.location = placeLocation;
         [returnedArray addObject:place];
@@ -168,8 +153,8 @@
         float placeLongitude = [[placeDictionary valueForKey:@"longitude"] floatValue];
         NSString *urlStringFlickr = [placeDictionary valueForKey:@"url_m"];
         NSString *urlStringFlickrThumbnail = [placeDictionary valueForKey:@"url_t"];
-        TMNTLocation *placeLocation = [[TMNTLocation alloc] initWithLatitude:placeLatitude andLongitude:placeLongitude];
-        
+        CLLocation *placeLocation = [[CLLocation alloc] initWithLatitude:placeLatitude longitude:placeLongitude];
+                
         TMNTFlickrPlace *flickrPlace = [[TMNTFlickrPlace alloc] init];
         flickrPlace.name = [placeDictionary valueForKey:@"name"];
         flickrPlace.location = placeLocation;
@@ -194,6 +179,68 @@
 
 #pragma mark MapView methods
 
+- (void)startUpdatingLocations
+{
+    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters; // 100 m
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopUpdatingLocation
+{
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"Test: didUpdateLocations");
+    CLLocation* newestLocation = [locations objectAtIndex:0];
+    userLocation = newestLocation;
+    
+    if (firstTimeRunning)
+    {
+        MKCoordinateSpan span =
+        {
+            .latitudeDelta = 0.01410686f,
+            .longitudeDelta = 0.01410686f
+        };
+        MKCoordinateRegion myRegion = {userLocation.coordinate, span};
+        [myMapView setRegion:myRegion];
+        
+    } else
+    {
+        MKCoordinateRegion myRegion = {userLocation.coordinate, myMapView.region.span};
+        [myMapView setRegion:myRegion];
+    }
+    [self stopUpdatingLocation];
+    
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:userLocation];
+    yelpProcess.delegate = self;
+    [yelpProcess getYelpJSON];
+    
+    [manager startMonitoringSignificantLocationChanges];
+    
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{    NSLog(@"Test: regionDidChange");
+//    if (!firstTimeRunning)
+//    {
+//        [self stopUpdatingLocation];
+//        yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:userLocation];
+//        yelpProcess.delegate = self;
+//        [yelpProcess getYelpJSON];
+//        [self.locationManager startMonitoringSignificantLocationChanges];
+//        
+//    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    UIAlertView *alert;
+    alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
 -(void)addPinsToMap
 {
     for (int i = 0; i < returnedArray.count; i++)
@@ -216,6 +263,10 @@
         //add to map
         [myMapView addAnnotation:myAnnotation];
         
+    }
+    
+    if (firstTimeRunning) {
+        firstTimeRunning = NO;
     }
 }
 
@@ -257,7 +308,7 @@
     businessPage.businessStreetAddress = clickedBusinessStreetAddress;
     businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
     businessPage.businessphone = clickedPhone;
-    businessPage.averageRating = clickedRating;
+    businessPage.averageRating = (NSNumber *)clickedRating;
     businessPage.businessCategory = clickedCategory;
     businessPage.distanceFromCurrentLocation = clickedBusinessDistanceFromCurrentLocation;
 }
@@ -271,7 +322,8 @@
     
     NSNumber *latitude=[NSNumber numberWithFloat:[view.annotation coordinate].latitude];
     NSNumber *longitude=[NSNumber numberWithFloat:[view.annotation coordinate].longitude];
-    TMNTLocation *clickedLocation = [[TMNTLocation alloc]initWithLatitude:[latitude floatValue] andLongitude:[longitude floatValue]];
+    CLLocation *clickedLocation = [[CLLocation alloc] initWithLatitude:[latitude floatValue] longitude:[longitude floatValue]];
+    
     clickedBusiness=[view.annotation title];
     clickedBusinessNeighborhood=[view.annotation subtitle];
     
@@ -283,7 +335,7 @@
     clickedState = myAnnotation.place.state;
     clickedZip = myAnnotation.place.zip;
     clickedPhone = myAnnotation.place.phone;
-    clickedRating = myAnnotation.place.rating;
+    clickedRating = (NSString*) myAnnotation.place.rating;
     clickedCategory = myAnnotation.place.category;
 //    clickedBusinessDistanceFromCurrentLocation = myAnnotation.place.distance;
     

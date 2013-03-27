@@ -8,15 +8,13 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface TMNTLocation : NSObject <CLLocationManagerDelegate>
+@interface TMNTLocation : NSObject
 
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 
 - (TMNTLocation*)init;
 
 - (TMNTLocation *)initWithLatitude:(float)latitude andLongitude:(float)longitude;
-
-- (TMNTLocation *)initWithCurrentLocationAndUpdates;
 
 @end
 
