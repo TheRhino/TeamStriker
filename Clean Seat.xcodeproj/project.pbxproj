@@ -33,6 +33,9 @@
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EEC851700E921002F3DCF /* toilet-inverted.jpg */; };
 		F11EECA21701EA14002F3DCF /* ReviewPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EECA11701EA14002F3DCF /* ReviewPic.jpg */; };
+		F11EECBC17039A06002F3DCF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBB17039A06002F3DCF /* Logo.png */; };
+		F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBD17039A8C002F3DCF /* Logo Small.png */; };
+		F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBF17039AE5002F3DCF /* Logo Retina.png */; };
 		F168C7EE16F22E2B001AA169 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */; };
 		F168C7F316F22FE9001AA169 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
 		F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F168C7F816F23638001AA169 /* HistoryTableViewController.m */; };
@@ -104,6 +107,9 @@
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F11EEC851700E921002F3DCF /* toilet-inverted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toilet-inverted.jpg"; sourceTree = SOURCE_ROOT; };
 		F11EECA11701EA14002F3DCF /* ReviewPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReviewPic.jpg; sourceTree = "<group>"; };
+		F11EECBB17039A06002F3DCF /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		F11EECBD17039A8C002F3DCF /* Logo Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Small.png"; sourceTree = "<group>"; };
+		F11EECBF17039AE5002F3DCF /* Logo Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Retina.png"; sourceTree = "<group>"; };
 		F168C7ED16F22E2B001AA169 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F168C7F716F23638001AA169 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewController.h; path = ../HistoryTableViewController.h; sourceTree = "<group>"; };
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 		8FBF3B7B16EE94E500308CBD = {
 			isa = PBXGroup;
 			children = (
+				F11EECBF17039AE5002F3DCF /* Logo Retina.png */,
+				F11EECBD17039A8C002F3DCF /* Logo Small.png */,
+				F11EECBB17039A06002F3DCF /* Logo.png */,
 				8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */,
 				8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */,
 				8FBF3B8616EE94E500308CBD /* Frameworks */,
@@ -260,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FBF3B8316EE94E500308CBD /* TakeMeNearThere */ = {
+		8FBF3B8316EE94E500308CBD /* Clean Seat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "Clean Seat" */;
 			buildPhases = (
 				8FBF3B8016EE94E500308CBD /* Sources */,
 				8FBF3B8116EE94E500308CBD /* Frameworks */,
@@ -273,7 +282,7 @@
 			dependencies = (
 				8FBF3BB516EE969A00308CBD /* PBXTargetDependency */,
 			);
-			name = TakeMeNearThere;
+			name = "Clean Seat";
 			productName = TakeMeNearThere;
 			productReference = 8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */;
 			productType = "com.apple.product-type.application";
@@ -288,7 +297,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Heroes in a Half Shell";
 			};
-			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "Clean Seat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -306,7 +315,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				8FBF3B8316EE94E500308CBD /* TakeMeNearThere */,
+				8FBF3B8316EE94E500308CBD /* Clean Seat */,
 			);
 		};
 /* End PBXProject section */
@@ -343,6 +352,9 @@
 				B798DD19170228E700D73CE2 /* Default.png in Resources */,
 				1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */,
 				1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */,
+				F11EECBC17039A06002F3DCF /* Logo.png in Resources */,
+				F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */,
+				F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +502,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */ = {
+		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "Clean Seat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA516EE94E500308CBD /* Debug */,
@@ -499,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */ = {
+		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "Clean Seat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA816EE94E500308CBD /* Debug */,

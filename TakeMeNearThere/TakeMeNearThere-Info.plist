@@ -14,8 +14,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>toiletretinaicon.png</string>
-				<string>toiletregularicon.png</string>
+				<string>Logo Retina.png</string>
+				<string>Logo Small.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
