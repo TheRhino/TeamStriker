@@ -54,10 +54,11 @@
     businessImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.businessURL]]];
     streetAddress.text = self.businessStreetAddress;
     cityStateZip.text = self.businessCityStateZip;
-    phone.text = self.businessphone;
+    phone.text = [NSString stringWithFormat: @"%@-%@-%@", [self.businessphone substringWithRange:NSMakeRange(0,3)],[self.businessphone substringWithRange:NSMakeRange(3,3)],
+                  [self.businessphone substringWithRange:NSMakeRange(6,4)]];
     rating.text= [NSString stringWithFormat:@"%@",self.averageRating];
     category.text = self.businessCategory;
-    distance.text = self.distanceFromCurrentLocation;
+    distance.text = [NSString stringWithFormat:@"%@",self.distanceFromCurrentLocation];
 	// Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
+		1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203A1702355800E00765 /* toiletretinaicon.png */; };
+		1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203D170235BE00E00765 /* toiletregularicon.png */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
 		8FBF3B8816EE94E500308CBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8716EE94E500308CBD /* UIKit.framework */; };
 		8FBF3B8A16EE94E500308CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8916EE94E500308CBD /* Foundation.framework */; };
@@ -21,7 +23,6 @@
 		8FBF3BBC16EE96C300308CBD /* libYelpKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB116EE964900308CBD /* libYelpKit.a */; };
 		8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */; };
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
-		8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC216EE976900308CBD /* TMNTLocation.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
 		B738FC0617023E9000452FBD /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = B738FC0517023E9000452FBD /* YelpClick.m */; };
 		B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7637A531700E622008F43C8 /* FavoritesTableViewController.m */; };
@@ -32,6 +33,9 @@
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		F11EEC861700E921002F3DCF /* toilet-inverted.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EEC851700E921002F3DCF /* toilet-inverted.jpg */; };
 		F11EECA21701EA14002F3DCF /* ReviewPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F11EECA11701EA14002F3DCF /* ReviewPic.jpg */; };
+		F11EECBC17039A06002F3DCF /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBB17039A06002F3DCF /* Logo.png */; };
+		F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBD17039A8C002F3DCF /* Logo Small.png */; };
+		F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = F11EECBF17039AE5002F3DCF /* Logo Retina.png */; };
 		F168C7EE16F22E2B001AA169 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F168C7EC16F22E2B001AA169 /* Model.xcdatamodeld */; };
 		F168C7F316F22FE9001AA169 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
 		F168C7F916F23638001AA169 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F168C7F816F23638001AA169 /* HistoryTableViewController.m */; };
@@ -68,9 +72,11 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D96203A1702355800E00765 /* toiletretinaicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletretinaicon.png; path = ../toiletretinaicon.png; sourceTree = "<group>"; };
+		1D96203D170235BE00E00765 /* toiletregularicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletregularicon.png; path = ../toiletregularicon.png; sourceTree = "<group>"; };
 		1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTCell.h; sourceTree = "<group>"; };
 		1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTCell.m; sourceTree = "<group>"; };
-		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBF3B8416EE94E500308CBD /* Clean Seat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean Seat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF3B8716EE94E500308CBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FBF3B8916EE94E500308CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,8 +93,6 @@
 		8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAPIProcessor.m; sourceTree = "<group>"; };
 		8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAppDelegate.h; sourceTree = "<group>"; };
 		8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAppDelegate.m; sourceTree = "<group>"; };
-		8FBF3BC116EE976900308CBD /* TMNTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTLocation.h; sourceTree = "<group>"; };
-		8FBF3BC216EE976900308CBD /* TMNTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTLocation.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
 		B738FC0417023E9000452FBD /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
@@ -103,6 +107,9 @@
 		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
 		F11EEC851700E921002F3DCF /* toilet-inverted.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toilet-inverted.jpg"; sourceTree = SOURCE_ROOT; };
 		F11EECA11701EA14002F3DCF /* ReviewPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReviewPic.jpg; sourceTree = "<group>"; };
+		F11EECBB17039A06002F3DCF /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		F11EECBD17039A8C002F3DCF /* Logo Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Small.png"; sourceTree = "<group>"; };
+		F11EECBF17039AE5002F3DCF /* Logo Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Retina.png"; sourceTree = "<group>"; };
 		F168C7ED16F22E2B001AA169 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F168C7F716F23638001AA169 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewController.h; path = ../HistoryTableViewController.h; sourceTree = "<group>"; };
 		F168C7F816F23638001AA169 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewController.m; path = ../HistoryTableViewController.m; sourceTree = "<group>"; };
@@ -161,8 +168,6 @@
 			children = (
 				1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */,
 				1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */,
-				8FBF3BC116EE976900308CBD /* TMNTLocation.h */,
-				8FBF3BC216EE976900308CBD /* TMNTLocation.m */,
 				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
 				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
 				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
@@ -186,6 +191,9 @@
 		8FBF3B7B16EE94E500308CBD = {
 			isa = PBXGroup;
 			children = (
+				F11EECBF17039AE5002F3DCF /* Logo Retina.png */,
+				F11EECBD17039A8C002F3DCF /* Logo Small.png */,
+				F11EECBB17039A06002F3DCF /* Logo.png */,
 				8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */,
 				8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */,
 				8FBF3B8616EE94E500308CBD /* Frameworks */,
@@ -196,7 +204,7 @@
 		8FBF3B8516EE94E500308CBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */,
+				8FBF3B8416EE94E500308CBD /* Clean Seat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,6 +244,8 @@
 				B798DD18170228E700D73CE2 /* Default.png */,
 				B79169C01701756200AE5EBC /* Default-568h@2x.png */,
 				B79169BE170173EF00AE5EBC /* Default@2x.png */,
+				1D96203D170235BE00E00765 /* toiletregularicon.png */,
+				1D96203A1702355800E00765 /* toiletretinaicon.png */,
 				F11EEC851700E921002F3DCF /* toilet-inverted.jpg */,
 				F11EECA11701EA14002F3DCF /* ReviewPic.jpg */,
 				8FBF3B8F16EE94E500308CBD /* TakeMeNearThere-Info.plist */,
@@ -259,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FBF3B8316EE94E500308CBD /* TakeMeNearThere */ = {
+		8FBF3B8316EE94E500308CBD /* Clean Seat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "Clean Seat" */;
 			buildPhases = (
 				8FBF3B8016EE94E500308CBD /* Sources */,
 				8FBF3B8116EE94E500308CBD /* Frameworks */,
@@ -272,9 +282,9 @@
 			dependencies = (
 				8FBF3BB516EE969A00308CBD /* PBXTargetDependency */,
 			);
-			name = TakeMeNearThere;
+			name = "Clean Seat";
 			productName = TakeMeNearThere;
-			productReference = 8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */;
+			productReference = 8FBF3B8416EE94E500308CBD /* Clean Seat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -287,7 +297,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Heroes in a Half Shell";
 			};
-			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "Clean Seat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -305,7 +315,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				8FBF3B8316EE94E500308CBD /* TakeMeNearThere */,
+				8FBF3B8316EE94E500308CBD /* Clean Seat */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +350,11 @@
 				B79169BF170173EF00AE5EBC /* Default@2x.png in Resources */,
 				B79169C11701756200AE5EBC /* Default-568h@2x.png in Resources */,
 				B798DD19170228E700D73CE2 /* Default.png in Resources */,
+				1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */,
+				1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */,
+				F11EECBC17039A06002F3DCF /* Logo.png in Resources */,
+				F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */,
+				F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +368,6 @@
 				8FBF3B9416EE94E500308CBD /* main.m in Sources */,
 				8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */,
 				8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */,
-				8FBF3BC716EE976900308CBD /* TMNTLocation.m in Sources */,
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
 				D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */,
@@ -488,7 +502,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */ = {
+		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "Clean Seat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA516EE94E500308CBD /* Debug */,
@@ -497,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */ = {
+		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "Clean Seat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA816EE94E500308CBD /* Debug */,

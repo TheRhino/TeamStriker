@@ -13,7 +13,7 @@
 
 @interface TMNTPlace : NSObject
 
-@property (strong, nonatomic) TMNTLocation *location;
+@property (strong, nonatomic) CLLocation *location;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *neighborhood;
 @property (strong, nonatomic) NSString *photoURLString;
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSNumber *rating;
 @property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *distance;
 
 
 
