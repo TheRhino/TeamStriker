@@ -41,44 +41,6 @@
     return self;
 }
 
-- (TMNTLocation *)initWithCurrentLocationAndUpdates
-{
-    self = [super init];
-    if (self)
-    {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        
-        [self startUpdatingLocations];
-    }
-    return self;
-}
 
-- (void)startUpdatingLocations
-{
-    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [self.locationManager startUpdatingLocation];
-}
-
-- (void)stopUpdatingLocation
-{
-    [self.locationManager stopUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation* newestLocation = [locations objectAtIndex:0];
-    if ( abs([newestLocation.timestamp timeIntervalSinceDate:[NSDate date]]) < 120)
-    {
-        self.coordinate = newestLocation.coordinate;
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    UIAlertView *alert;
-    alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-} 
 @end
 
