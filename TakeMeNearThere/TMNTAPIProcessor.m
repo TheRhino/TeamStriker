@@ -53,9 +53,10 @@
 
 - (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation *)location
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&radius=0.25&lat=%f&long=%f&limit=10&ywsid=SHvJpobPrBabhrCyJ8FMag",search, location.coordinate.latitude, location.coordinate.longitude];
+    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&radius=0.25&lat=%f&long=%f&limit=10&ywsid=JW3R0L0McY1Olbo3X94wxQ",search, location.coordinate.latitude, location.coordinate.longitude];
     return self;
 }
+
 - (void) getFlickrJSON
 {
     NSURLRequest* flickrRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stringAPICall]];
