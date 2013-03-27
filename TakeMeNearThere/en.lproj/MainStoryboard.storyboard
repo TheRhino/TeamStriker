@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C6w-Tm-eG3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -69,7 +69,7 @@
             <objects>
                 <viewController id="CDf-dG-njB" customClass="TMNTViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JUa-9l-mfa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-Nx-3lQ">
@@ -118,18 +118,25 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="bottom" secondItem="JUa-9l-mfa" secondAttribute="bottom" type="user" id="4Lt-v9-N1g"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="54Y-Nd-sFy"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerX" secondItem="R2I-wB-BhC" secondAttribute="centerX" type="default" id="AF6-X5-rvx"/>
-                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" constant="-2" id="Hyh-Eq-GBX"/>
-                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" constant="375" id="cEv-Ar-eEP"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="JUa-9l-mfa" secondAttribute="trailing" type="default" id="iDd-BB-dFX"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerX" secondItem="R2I-wB-BhC" secondAttribute="centerX" type="default" id="67L-OQ-4Jw"/>
+                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" constant="287" id="eQE-cg-2Ok"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="JUa-9l-mfa" secondAttribute="trailing" type="default" id="kOc-6T-AjY"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="n3G-wA-4GH"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" type="default" id="rDX-08-ONa"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerY" secondItem="R2I-wB-BhC" secondAttribute="centerY" type="default" id="uvX-Ip-GDg"/>
+                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="v6w-jI-EZ8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Clean Seat" id="Ej4-E3-72E"/>
+                    <navigationItem key="navigationItem" title="Clean Seat" id="Ej4-E3-72E">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="8jX-FD-blK">
+                            <connections>
+                                <action selector="favorites:" destination="CDf-dG-njB" id="a7m-Zg-mZe"/>
+                                <segue destination="cD9-cx-iaQ" kind="push" identifier="directToFavorites" id="QAB-s9-47D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="annotationActivityIndicator" destination="R2I-wB-BhC" id="BMt-4w-mKT"/>
                         <outlet property="flickrTableView" destination="GyN-Nx-3lQ" id="BiC-kY-o1W"/>
@@ -199,9 +206,6 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9f-HJ-EuA">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="qLg-Hh-YDB"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="Add to Favorites">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,8 +215,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="favorite:" destination="2hC-cx-Jcq" eventType="touchDown" id="pPi-Ax-HcN"/>
-                                    <segue destination="cD9-cx-iaQ" kind="push" id="gsc-ah-se7"/>
+                                    <action selector="favorite:" destination="2hC-cx-Jcq" eventType="touchDown" id="Z9x-gK-1HP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhe-bQ-E6f">
@@ -279,6 +282,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8C-jU-BSa">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="fnJ-R5-dmY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Add to Favorites">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="favorite:" destination="2hC-cx-Jcq" eventType="touchDown" id="2Z5-VC-s9f"/>
+                                    <segue destination="cD9-cx-iaQ" kind="push" id="4gl-0U-XBC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
@@ -288,6 +308,7 @@
                             <constraint firstItem="s74-w6-xuK" firstAttribute="leading" secondItem="6Uv-8x-20W" secondAttribute="leading" type="default" id="6TT-Md-9E9"/>
                             <constraint firstItem="CIi-Eu-t2y" firstAttribute="top" secondItem="Vqn-IS-Irz" secondAttribute="top" type="default" id="7rL-hR-6Ym"/>
                             <constraint firstItem="Vqn-IS-Irz" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="146" id="9LF-H8-Qgw"/>
+                            <constraint firstItem="g8C-jU-BSa" firstAttribute="leading" secondItem="u9f-HJ-EuA" secondAttribute="leading" type="default" id="9VH-XM-ssQ"/>
                             <constraint firstItem="PlE-B3-lfb" firstAttribute="leading" secondItem="CIi-Eu-t2y" secondAttribute="leading" type="default" id="BwR-vh-28l"/>
                             <constraint firstItem="Zhe-bQ-E6f" firstAttribute="leading" secondItem="B0u-11-wsI" secondAttribute="leading" type="default" id="CMu-2w-wk7"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="trailing" secondItem="EzI-Fz-wQm" secondAttribute="trailing" type="default" id="D0G-2q-hr0"/>
@@ -296,6 +317,7 @@
                             <constraint firstItem="PlE-B3-lfb" firstAttribute="leading" secondItem="SM8-Ts-Svn" secondAttribute="leading" constant="64" id="F95-6Y-fbO"/>
                             <constraint firstItem="B0u-11-wsI" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="100" id="Ger-ED-sNq"/>
                             <constraint firstAttribute="trailing" secondItem="dSK-ZZ-Y1w" secondAttribute="trailing" constant="27" id="IiI-Ad-OIX"/>
+                            <constraint firstItem="g8C-jU-BSa" firstAttribute="top" secondItem="u9f-HJ-EuA" secondAttribute="top" type="default" id="JYq-lh-M5l"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="56" id="K2b-MW-Pkn"/>
                             <constraint firstItem="PlE-B3-lfb" firstAttribute="top" secondItem="B0u-11-wsI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KLI-ww-9hd"/>
                             <constraint firstItem="fHt-2I-fOi" firstAttribute="trailing" secondItem="u9f-HJ-EuA" secondAttribute="trailing" type="default" id="L29-Kw-dnf"/>
@@ -309,7 +331,6 @@
                             <constraint firstItem="hQq-wT-sEm" firstAttribute="trailing" secondItem="A9n-jg-1BO" secondAttribute="trailing" type="default" id="a1f-fX-u79"/>
                             <constraint firstItem="uoC-kp-ikD" firstAttribute="trailing" secondItem="SM8-Ts-Svn" secondAttribute="trailing" type="default" id="afU-Dd-pS8"/>
                             <constraint firstAttribute="bottom" secondItem="hQq-wT-sEm" secondAttribute="bottom" constant="81" id="jGA-WM-sk8"/>
-                            <constraint firstAttribute="bottom" secondItem="u9f-HJ-EuA" secondAttribute="bottom" constant="11" id="jMG-bR-yld"/>
                             <constraint firstItem="u9f-HJ-EuA" firstAttribute="centerX" secondItem="SM8-Ts-Svn" secondAttribute="centerX" type="default" id="jbm-6H-hzx"/>
                             <constraint firstItem="A9n-jg-1BO" firstAttribute="leading" secondItem="SM8-Ts-Svn" secondAttribute="leading" constant="13" id="kd3-bz-zpK"/>
                             <constraint firstItem="Vqn-IS-Irz" firstAttribute="trailing" secondItem="Zhe-bQ-E6f" secondAttribute="trailing" type="default" id="ksL-98-n2t"/>
@@ -318,6 +339,9 @@
                             <constraint firstItem="B0u-11-wsI" firstAttribute="trailing" secondItem="EzI-Fz-wQm" secondAttribute="trailing" type="default" id="nCI-0m-oZO"/>
                             <constraint firstItem="PlE-B3-lfb" firstAttribute="trailing" secondItem="CIi-Eu-t2y" secondAttribute="trailing" type="default" id="o6i-KY-R07"/>
                             <constraint firstItem="OZS-JK-JKX" firstAttribute="leading" secondItem="EzI-Fz-wQm" secondAttribute="leading" type="default" id="pKL-ts-Iuh"/>
+                            <constraint firstItem="g8C-jU-BSa" firstAttribute="trailing" secondItem="u9f-HJ-EuA" secondAttribute="trailing" type="default" id="tRh-VG-mg0"/>
+                            <constraint firstAttribute="bottom" secondItem="g8C-jU-BSa" secondAttribute="bottom" constant="11" id="tcn-Pq-BjM"/>
+                            <constraint firstItem="g8C-jU-BSa" firstAttribute="baseline" secondItem="u9f-HJ-EuA" secondAttribute="baseline" type="default" id="uXR-sz-yxc"/>
                             <constraint firstItem="EzI-Fz-wQm" firstAttribute="top" secondItem="SM8-Ts-Svn" secondAttribute="top" constant="78" id="uqG-Ai-LqC"/>
                             <constraint firstItem="fHt-2I-fOi" firstAttribute="top" secondItem="B0u-11-wsI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vGA-vU-4A7"/>
                             <constraint firstItem="uoC-kp-ikD" firstAttribute="top" secondItem="B0u-11-wsI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wPl-4I-eWu"/>
@@ -332,6 +356,7 @@
                         <outlet property="businessNameLabel" destination="A9n-jg-1BO" id="10c-bT-wCs"/>
                         <outlet property="category" destination="uoC-kp-ikD" id="tkB-Ym-e1A"/>
                         <outlet property="cityStateZip" destination="EzI-Fz-wQm" id="Ooe-kr-a68"/>
+                        <outlet property="distance" destination="CIi-Eu-t2y" id="gHo-1O-hhl"/>
                         <outlet property="neighborhoodLabel" destination="Cnm-Ed-feZ" id="CjR-iW-pT7"/>
                         <outlet property="phone" destination="B0u-11-wsI" id="1mD-7Z-K9u"/>
                         <outlet property="rating" destination="PlE-B3-lfb" id="Ovx-bU-TMp"/>
@@ -441,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWg-fU-V12" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2874" y="-1120"/>
+            <point key="canvasLocation" x="2702" y="-1696"/>
         </scene>
     </scenes>
     <classes>
@@ -480,6 +505,7 @@
         <class className="TMNTViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>
             <relationships>
+                <relationship kind="action" name="favorites:"/>
                 <relationship kind="outlet" name="annotationActivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="flickrTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="mapViewVerticalConstraint" candidateClass="NSLayoutConstraint"/>
@@ -492,4 +518,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="4gl-0U-XBC"/>
+    </inferredMetricsTieBreakers>
 </document>

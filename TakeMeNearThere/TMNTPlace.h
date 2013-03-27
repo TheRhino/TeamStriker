@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSNumber *rating;
 @property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *distance;
 
 
 

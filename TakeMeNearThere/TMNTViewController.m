@@ -51,7 +51,12 @@
     __weak IBOutlet NSLayoutConstraint *mapViewVerticalConstraint;
     
 }
+
+-(IBAction)favorites:(id)sender;
+
 @end
+
+
 
 @implementation TMNTViewController
 
@@ -99,17 +104,6 @@
     flickrTableView.backgroundColor = [UIColor blackColor];
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    BusinessViewController *businessPage=[segue destinationViewController];
-//    businessPage.businessName = clickedBusiness;
-//    businessPage.neighborhoodName = clickedBusinessNeighborhood;
-//    businessPage.businessURL = clickedBusinessPhotoURL;
-//    businessPage.businessStreetAddress = clickedBusinessStreetAddress;
-//    businessPage.businessCityStateZip = [NSString stringWithFormat:@"%@, %@, %@",clickedCity,clickedState,clickedZip];
-//    businessPage.businessphone = clickedPhone;
-//}
-
 #pragma mark API delegates
 
 - (void)grabArrayYelp:(NSArray *)data
@@ -155,7 +149,7 @@
         place.phone=[placeDictionary valueForKey:@"phone"];
         place.rating = [placeDictionary valueForKey:@"avg_rating"];
         place.category = [[[placeDictionary valueForKey:@"categories"]objectAtIndex:0]valueForKey:@"name"];
-//        place.distance = [NSString][placeDictionary valueForKey:@"distance"];
+        place.distance = [placeDictionary valueForKey:@"distance"];
         place.location = placeLocation;
         [returnedArray addObject:place];
     }
@@ -237,7 +231,7 @@
             pinView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myMap"];
         }
         
-        pinView.pinColor = MKPinAnnotationColorGreen;
+        pinView.pinColor = MKPinAnnotationColorRed;
     
         pinView.canShowCallout =YES;
         pinView.rightCalloutAccessoryView = detailButton;
@@ -288,7 +282,7 @@
     clickedPhone = myAnnotation.place.phone;
     clickedRating = myAnnotation.place.rating;
     clickedCategory = myAnnotation.place.category;
-//    clickedBusinessDistanceFromCurrentLocation = myAnnotation.place.distance;
+    clickedBusinessDistanceFromCurrentLocation = myAnnotation.place.distance;
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"YelpClick" inManagedObjectContext:myManagedObjectContext];
     NSFetchRequest *fetchRequest =[[NSFetchRequest alloc] init];
@@ -327,6 +321,11 @@
     
     [self expandMapView];
 
+}
+
+-(IBAction)favorites:(id)sender
+{
+    [self performSegueWithIdentifier:@"directToFavorites" sender:self];
 }
 
 -(void)shrinkMapView
