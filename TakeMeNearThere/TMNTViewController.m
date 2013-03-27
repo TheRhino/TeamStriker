@@ -204,9 +204,10 @@
     {
         MKCoordinateSpan span =
         {
-            .latitudeDelta = 0.01410686f,
-            .longitudeDelta = 0.01410686f
+            .latitudeDelta = 0.01f,
+            .longitudeDelta = 0.01f
         };
+        
         MKCoordinateRegion myRegion = {userLocation.coordinate, span};
         [myMapView setRegion:myRegion];
         
@@ -217,7 +218,11 @@
     }
     [self stopUpdatingLocation];
     
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"restaurants" andLocation:userLocation];
+    yelpProcess = [[TMNTAPIProcessor alloc] initWithYelpSearch:@"restaurants" andLocation:userLocation];
+    yelpProcess.delegate = self;
+    [yelpProcess getYelpJSON];
+    
+    yelpProcess = [[TMNTAPIProcessor alloc] initWithYelpSearch:@"food" andLocation:userLocation];
     yelpProcess.delegate = self;
     [yelpProcess getYelpJSON];
     
@@ -317,7 +322,7 @@
 }
 
 
-- (int)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     
     TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];

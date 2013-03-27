@@ -9,35 +9,53 @@
 #import "TMNTAPIProcessor.h"
 #import <YelpKit/YelpKit.h>
 
+
 @implementation TMNTAPIProcessor
 
 @synthesize stringAPICall,flickrPhotosArray,yelpBusinessesArray;
 
 
 //api method call for flickr
-- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(CLLocation*)userLocation
+- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(CLLocation*)location
 {
-//    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%f&lon=%f&radius=0.1&extras=url_t%@+url_m%@C+geo", search, userLocation.coordinate.latitude, userLocation.coordinate.longitude, @"%2C", @"%2C"];
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=fe96680b3eeef8c86fb070bd12322d23&user_id=94174680%@N05&lat=%f&lon=%f&radius=.5&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", location.coordinate.latitude, location.coordinate.longitude, @"%2C", @"%2C"];
     
-    
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=fe96680b3eeef8c86fb070bd12322d23&user_id=94174680%@N05&lat=%f&lon=%f&radius=.5&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", userLocation.coordinate.latitude, userLocation.coordinate.longitude, @"%2C", @"%2C"];
-    
+    // Add Flickr API Keys Here:
     // fe96680b3eeef8c86fb070bd12322d23
     // bd02a7a94fbe1f4c40a1661af4cb7bbe
+    
     return self;
 }
 
 //api method call for yelp
-- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andMapView:(MKMapView *)mapView
 {
-
-    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=0.5&limit=10&ywsid=SHvJpobPrBabhrCyJ8FMag",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude];
-    //SHvJpobPrBabhrCyJ8FMag - Dexters
-    //aWCgjSUCSN9F5JAqLZ8NBw - ?
+//      IMPLEMENT WHEN WE HAVE OAUTH
+//
+//    //To calculate the search bounds...
+//    //First we need to calculate the corners of the map so we get the points
+//    CGPoint nePoint = CGPointMake(mapView.bounds.origin.x + mapView.bounds.size.width, mapView.bounds.origin.y);
+//    CGPoint swPoint = CGPointMake((mapView.bounds.origin.x), (mapView.bounds.origin.y + mapView.bounds.size.height));
+//    
+//    //Then transform those point into lat,lng values
+//    CLLocationCoordinate2D neCoord;
+//    neCoord = [mapView convertPoint:nePoint toCoordinateFromView:mapView];
+//    
+//    CLLocationCoordinate2D swCoord;
+//    swCoord = [mapView convertPoint:swPoint toCoordinateFromView:mapView];
+//    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&bounds=%f,%f|%f,%f&limit=10&ywsid=SHvJpobPrBabhrCyJ8FMag",search, swCoord.latitude, swCoord.longitude, neCoord.latitude, neCoord.longitude];
+    // Add YELP API Keys here:
+    // SHvJpobPrBabhrCyJ8FMag - Dexters
+    // aWCgjSUCSN9F5JAqLZ8NBw - ?
+    
     return self;
 }
 
-//method calll for returing the dicitionaries that we are getting from the api calls
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation *)location
+{
+    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&radius=0.25&lat=%f&long=%f&limit=10&ywsid=SHvJpobPrBabhrCyJ8FMag",search, location.coordinate.latitude, location.coordinate.longitude];
+    return self;
+}
 - (void) getFlickrJSON
 {
     NSURLRequest* flickrRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stringAPICall]];
@@ -98,4 +116,5 @@
     NSDictionary *myYelpVenues = (NSDictionary *)data;
     yelpBusinessesArray = [myYelpVenues valueForKey:@"businesses"];
 }
+
 @end

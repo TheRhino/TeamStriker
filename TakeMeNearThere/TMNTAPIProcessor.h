@@ -10,7 +10,7 @@
 #import <YelpKit/YelpKit.h>
 #import "TMNTDataSourceDelegate.h"
 #import <CoreLocation/CoreLocation.h>
-
+#import <MapKit/MapKit.h>
 
 @interface TMNTAPIProcessor : NSObject
 
@@ -20,9 +20,10 @@
 @property (strong, nonatomic) id <TMNTDataSourceDelegate> delegate;
 
 
-- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(CLLocation *)userLocation;
+- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(CLLocation *)location;
 
-- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation *)userLocation;
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andMapView:(MKMapView *)mapView;
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation *)location;
 
 //the getter and the setting of the json from flickr
 - (void)getFlickrJSON;
