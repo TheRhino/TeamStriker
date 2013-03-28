@@ -66,7 +66,7 @@
     UILabel *yelpClickLabel = (UILabel *)yelpClickViewToLabel;
     
     yelpClickLabel.text = [[yelpHistory objectAtIndex:[indexPath row]]valueForKey:@"name"];
-    tableViewCell.backgroundColor = [UIColor colorWithRed:0.0f green:0.1f blue:0.35f alpha:0.65f];//colorWithCIColor:[CIColor colorWithRed:0.0f green:0.01f blue:0.75f alpha:0.85]];
+    tableViewCell.backgroundColor = [UIColor colorWithRed:0.0f green:0.1f blue:0.34f alpha:0.33f];//colorWithCIColor:[CIColor colorWithRed:0.0f green:0.01f blue:0.75f alpha:0.85]];
     return tableViewCell;
 }
 

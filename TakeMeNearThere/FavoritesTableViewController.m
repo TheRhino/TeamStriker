@@ -79,7 +79,7 @@
     UILabel *yelpClickLabel = (UILabel *)yelpClickViewToLabel;
     
     yelpClickLabel.text = [[yelpFavorites objectAtIndex:[indexPath row]]valueForKey:@"name"];
-    tableViewCell.backgroundColor = [UIColor colorWithRed:0.0f green:0.1f blue:0.35f alpha:0.65f];
+    tableViewCell.backgroundColor = [UIColor colorWithRed:0.0f green:0.1f blue:0.34f alpha:0.33f];
     return tableViewCell;
 }
 
