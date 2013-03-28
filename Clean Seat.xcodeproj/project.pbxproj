@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
+		1D5635BD17048977001F959B /* nobathrooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5635BC17048977001F959B /* nobathrooms.png */; };
 		1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203A1702355800E00765 /* toiletretinaicon.png */; };
 		1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203D170235BE00E00765 /* toiletregularicon.png */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
@@ -72,6 +73,7 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D5635BC17048977001F959B /* nobathrooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nobathrooms.png; sourceTree = SOURCE_ROOT; };
 		1D96203A1702355800E00765 /* toiletretinaicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletretinaicon.png; path = ../toiletretinaicon.png; sourceTree = "<group>"; };
 		1D96203D170235BE00E00765 /* toiletregularicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletregularicon.png; path = ../toiletregularicon.png; sourceTree = "<group>"; };
 		1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTCell.h; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		8FBF3B8E16EE94E500308CBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D5635BC17048977001F959B /* nobathrooms.png */,
 				B798DD18170228E700D73CE2 /* Default.png */,
 				B79169C01701756200AE5EBC /* Default-568h@2x.png */,
 				B79169BE170173EF00AE5EBC /* Default@2x.png */,
@@ -355,6 +358,7 @@
 				F11EECBC17039A06002F3DCF /* Logo.png in Resources */,
 				F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */,
 				F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */,
+				1D5635BD17048977001F959B /* nobathrooms.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
