@@ -118,10 +118,10 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="bottom" secondItem="JUa-9l-mfa" secondAttribute="bottom" type="user" id="4Lt-v9-N1g"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerX" secondItem="R2I-wB-BhC" secondAttribute="centerX" type="default" id="67L-OQ-4Jw"/>
-                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" constant="287" id="eQE-cg-2Ok"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="JUa-9l-mfa" secondAttribute="trailing" type="default" id="kOc-6T-AjY"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="n3G-wA-4GH"/>
+                            <constraint firstItem="GyN-Nx-3lQ" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" constant="372" id="5DQ-7Z-SLX"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="F2l-QY-tZ7"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="JUa-9l-mfa" secondAttribute="trailing" type="default" id="FUO-Eg-hE8"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerX" secondItem="R2I-wB-BhC" secondAttribute="centerX" type="default" id="aYM-ul-GXh"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="JUa-9l-mfa" secondAttribute="top" type="default" id="rDX-08-ONa"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="centerY" secondItem="R2I-wB-BhC" secondAttribute="centerY" type="default" id="uvX-Ip-GDg"/>
                             <constraint firstItem="GyN-Nx-3lQ" firstAttribute="leading" secondItem="JUa-9l-mfa" secondAttribute="leading" type="default" id="v6w-jI-EZ8"/>
@@ -569,6 +569,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4gl-0U-XBC"/>
+        <segue reference="QAB-s9-47D"/>
     </inferredMetricsTieBreakers>
 </document>

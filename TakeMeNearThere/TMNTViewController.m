@@ -25,6 +25,7 @@
     TMNTAPIProcessor *yelpProcess;
     CLLocation *userLocation;
     BOOL firstTimeRunning;
+    BOOL noPictureFromFlickrSearch;
     
     __weak IBOutlet UITableView *flickrTableView;
     __weak IBOutlet MKMapView *myMapView;
@@ -433,11 +434,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (flickrData == nil)
+    if (flickrData.count == 0)
     {
-        return 0;
+        noPictureFromFlickrSearch = YES;
+        return 1;
     } else
     {
+        noPictureFromFlickrSearch = NO;
         return flickrData.count;
     }
 }
@@ -454,22 +457,30 @@
         customCell = [[TMNTCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellIdentifierFlickr"];
     }
     
-    TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
+    
     
     UIView *viewThatsAnImage = [customCell viewWithTag:101];
     UIImageView *flickrImageView = (UIImageView*) viewThatsAnImage;
     customCell.contentView.backgroundColor = [UIColor blackColor];
     
     CGAffineTransform rotateImage = CGAffineTransformMakeRotation(M_PI_2);
-    flickrImageView.transform = rotateImage;
     
-    if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
+    flickrImageView.transform = rotateImage;
+    if (flickrData.count == 0)
     {
-        [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary onImageView:flickrImageView];
-    } else
+        UIImage *noBathrooms = [UIImage imageNamed:@"noBathrooms.png"];
+        flickrImageView.image = noBathrooms;
+    }else
     {
-        UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
-        flickrImageView.image = existingImage;
+        TMNTFlickrPlace *newPlace =[flickrData objectAtIndex:[indexPath row]];
+        if ([flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail] == nil)
+        {
+            [customCell pullImageFromStringURL:[newPlace urlStringThumbnail] appendDictionary:flickrPicturesDictionary onImageView:flickrImageView];
+        } else
+        {
+            UIImage *existingImage = [flickrPicturesDictionary valueForKey:newPlace.urlStringThumbnail];
+            flickrImageView.image = existingImage;
+        }
     }
     
     return customCell;

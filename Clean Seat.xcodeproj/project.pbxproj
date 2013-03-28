@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
+		1D5635C217048B9E001F959B /* noBathrooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5635C117048B9E001F959B /* noBathrooms.png */; };
 		1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203A1702355800E00765 /* toiletretinaicon.png */; };
 		1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203D170235BE00E00765 /* toiletregularicon.png */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
@@ -58,13 +59,6 @@
 			remoteGlobalIDString = 00DB563915BE198600E247FA;
 			remoteInfo = YelpKitCatalog;
 		};
-		8FBF3BB416EE969A00308CBD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 005592E7140B0085001E9C43;
-			remoteInfo = YelpKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +66,7 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D5635C117048B9E001F959B /* noBathrooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noBathrooms.png; sourceTree = "<group>"; };
 		1D96203A1702355800E00765 /* toiletretinaicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletretinaicon.png; path = ../toiletretinaicon.png; sourceTree = "<group>"; };
 		1D96203D170235BE00E00765 /* toiletregularicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletregularicon.png; path = ../toiletregularicon.png; sourceTree = "<group>"; };
 		1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTCell.h; sourceTree = "<group>"; };
@@ -191,6 +186,7 @@
 		8FBF3B7B16EE94E500308CBD = {
 			isa = PBXGroup;
 			children = (
+				1D5635C117048B9E001F959B /* noBathrooms.png */,
 				F11EECBF17039AE5002F3DCF /* Logo Retina.png */,
 				F11EECBD17039A8C002F3DCF /* Logo Small.png */,
 				F11EECBB17039A06002F3DCF /* Logo.png */,
@@ -280,7 +276,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8FBF3BB516EE969A00308CBD /* PBXTargetDependency */,
 			);
 			name = "Clean Seat";
 			productName = TakeMeNearThere;
@@ -355,6 +350,7 @@
 				F11EECBC17039A06002F3DCF /* Logo.png in Resources */,
 				F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */,
 				F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */,
+				1D5635C217048B9E001F959B /* noBathrooms.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,14 +378,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8FBF3BB516EE969A00308CBD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YelpKit;
-			targetProxy = 8FBF3BB416EE969A00308CBD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8FBF3B9016EE94E500308CBD /* InfoPlist.strings */ = {
@@ -480,6 +468,10 @@
 		8FBF3BA816EE94E500308CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/YelpKit/Libraries/GHKit/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TakeMeNearThere/TakeMeNearThere-Prefix.pch";
 				INFOPLIST_FILE = "TakeMeNearThere/TakeMeNearThere-Info.plist";
@@ -491,6 +483,10 @@
 		8FBF3BA916EE94E500308CBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/YelpKit/Libraries/GHKit/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TakeMeNearThere/TakeMeNearThere-Prefix.pch";
 				INFOPLIST_FILE = "TakeMeNearThere/TakeMeNearThere-Info.plist";
