@@ -45,7 +45,7 @@
     NSString *clickedCategory;
     NSString *clickedBusinessDistanceFromCurrentLocation;
     
-    int pinCount;
+    BOOL pinSelected;
     
     NSMutableArray *yelpData;
     NSMutableDictionary *flickrPicturesDictionary;
@@ -73,7 +73,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pinCount = 0;
     firstTimeRunning = YES;
     
     userLocation = [[CLLocation alloc] init];
@@ -329,7 +328,7 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    
+    pinSelected = YES;
     TMNTAppDelegate *appDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
     myManagedObjectContext = appDelegate.managedObjectContext;
     
@@ -386,9 +385,20 @@
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view 
 {
-    
-    [self expandMapView];
+    pinSelected = NO;
+    [self performSelector:@selector(checkForPins) withObject:myMapView afterDelay:.125];
+}
 
+-(void)checkForPins
+{
+    if (pinSelected)
+    {
+        
+    }
+    else
+    {
+        [self expandMapView];
+    }
 }
 
 -(IBAction)favorites:(id)sender
