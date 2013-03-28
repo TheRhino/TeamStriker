@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
-		1D5635C217048B9E001F959B /* noBathrooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5635C117048B9E001F959B /* noBathrooms.png */; };
+		1D5635BD17048977001F959B /* nobathrooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5635BC17048977001F959B /* nobathrooms.png */; };
 		1D96203B1702355800E00765 /* toiletretinaicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203A1702355800E00765 /* toiletretinaicon.png */; };
 		1D96203E170235BE00E00765 /* toiletregularicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D96203D170235BE00E00765 /* toiletregularicon.png */; };
 		1DDCAF8416FB9D3B001A6B64 /* TMNTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDCAF8316FB9D3B001A6B64 /* TMNTCell.m */; };
@@ -25,6 +25,7 @@
 		8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */; };
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
+		B72EE3EC1703C317009650CA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B72EE3EB1703C317009650CA /* Default@2x.png */; };
 		B738FC0617023E9000452FBD /* YelpClick.m in Sources */ = {isa = PBXBuildFile; fileRef = B738FC0517023E9000452FBD /* YelpClick.m */; };
 		B7637A541700E622008F43C8 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7637A531700E622008F43C8 /* FavoritesTableViewController.m */; };
 		B78F5A0916FA20AF00ABE3CA /* imagetester.png in Resources */ = {isa = PBXBuildFile; fileRef = B78F5A0816FA20AF00ABE3CA /* imagetester.png */; };
@@ -66,7 +67,7 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1D5635C117048B9E001F959B /* noBathrooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noBathrooms.png; sourceTree = "<group>"; };
+		1D5635BC17048977001F959B /* nobathrooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nobathrooms.png; sourceTree = SOURCE_ROOT; };
 		1D96203A1702355800E00765 /* toiletretinaicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletretinaicon.png; path = ../toiletretinaicon.png; sourceTree = "<group>"; };
 		1D96203D170235BE00E00765 /* toiletregularicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toiletregularicon.png; path = ../toiletregularicon.png; sourceTree = "<group>"; };
 		1DDCAF8216FB9D3B001A6B64 /* TMNTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTCell.h; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAppDelegate.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
+		B72EE3EB1703C317009650CA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B738FC0417023E9000452FBD /* YelpClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClick.h; sourceTree = "<group>"; };
 		B738FC0517023E9000452FBD /* YelpClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClick.m; sourceTree = "<group>"; };
 		B7637A521700E622008F43C8 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				1D5635C117048B9E001F959B /* noBathrooms.png */,
+				B72EE3EB1703C317009650CA /* Default@2x.png */,
 				F11EECBF17039AE5002F3DCF /* Logo Retina.png */,
 				F11EECBD17039A8C002F3DCF /* Logo Small.png */,
 				F11EECBB17039A06002F3DCF /* Logo.png */,
@@ -237,6 +240,7 @@
 		8FBF3B8E16EE94E500308CBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D5635BC17048977001F959B /* nobathrooms.png */,
 				B798DD18170228E700D73CE2 /* Default.png */,
 				B79169C01701756200AE5EBC /* Default-568h@2x.png */,
 				B79169BE170173EF00AE5EBC /* Default@2x.png */,
@@ -350,7 +354,8 @@
 				F11EECBC17039A06002F3DCF /* Logo.png in Resources */,
 				F11EECBE17039A8C002F3DCF /* Logo Small.png in Resources */,
 				F11EECC017039AE5002F3DCF /* Logo Retina.png in Resources */,
-				1D5635C217048B9E001F959B /* noBathrooms.png in Resources */,
+				1D5635BD17048977001F959B /* nobathrooms.png in Resources */,
+				B72EE3EC1703C317009650CA /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,14 @@
 
 #import "HistoryTableViewController.h"
 
-@interface FavoritesTableViewController : HistoryTableViewController
+@class favorite;
+
+@interface FavoritesTableViewController : HistoryTableViewController <UITableViewDataSource,UITableViewDelegate, UITabBarControllerDelegate>
+
+@property NSManagedObjectContext *favManagedObjectContext;
+//@property (nonatomic, retain) NSSet *favorite;
+//
+//- (void)removeFavoriteObject:(favorite *)value;
+//- (void)removeFavorite:(NSSet *)values;
 
 @end

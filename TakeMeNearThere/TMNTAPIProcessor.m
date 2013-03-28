@@ -18,7 +18,8 @@
 //api method call for flickr
 - (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLocation:(CLLocation*)location
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&user_id=94174680%@N05&lat=%f&lon=%f&radius=0.5&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", location.coordinate.latitude, location.coordinate.longitude, @"%2C", @"%2C"];
+
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=fe96680b3eeef8c86fb070bd12322d23&user_id=94174680%@N05&lat=%f&lon=%f&radius=.5&extras=geo%@+url_t%@+url_m&format=json&nojsoncallback=1",@"%40", location.coordinate.latitude, location.coordinate.longitude, @"%2C", @"%2C"];
     
     // Add Flickr API Keys Here:
     // fe96680b3eeef8c86fb070bd12322d23
