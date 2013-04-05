@@ -49,9 +49,9 @@
 {
     [super viewDidLoad];
     [reviewPic setImage:[UIImage imageNamed:@"ReviewPic.jpg"]];
-    businessNameLabel.text=self.businessName;
-    neighborhoodLabel.text=self.neighborhoodName;
-    businessImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.businessURL]]];
+    businessNameLabel.text = self.businessName;
+    neighborhoodLabel.text = self.neighborhoodName;
+    businessImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.businessURL]]];
     streetAddress.text = self.businessStreetAddress;
     cityStateZip.text = self.businessCityStateZip;
     phone.text = [NSString stringWithFormat: @"%@-%@-%@", [self.businessphone substringWithRange:NSMakeRange(0,3)],[self.businessphone substringWithRange:NSMakeRange(3,3)],
@@ -59,7 +59,6 @@
     rating.text= [NSString stringWithFormat:@"%@",self.averageRating];
     category.text = self.businessCategory;
     distance.text = [NSString stringWithFormat:@"%@",self.distanceFromCurrentLocation];
-	// Do any additional setup after loading the view.
 }
 
 -(IBAction)favorite:(id)sender
@@ -81,9 +80,7 @@
             NSError *error;
             [self saveWithError:error];
         }
-
     }
-    
 }
 
 -(void)saveWithError:(NSError*)error
