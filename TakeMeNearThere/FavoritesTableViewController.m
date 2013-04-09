@@ -25,27 +25,19 @@
 @synthesize favManagedObjectContext;
 //@synthesize favorite;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     yelpFavorites = [self getYelpFavorites];
     [myFavTableView reloadData];
 }
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    //[super viewWillAppear:animated];
+//    
+//}
 
 -(NSArray *)getYelpFavorites
 {
@@ -62,11 +54,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return [self getYelpFavorites].count;
+    if (yelpFavorites.count == 0) {
+        return 0;
+    }else
+    {
+        return yelpFavorites.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-
 {
     UITableViewCell *tableViewCell = [tableView dequeueReusableCellWithIdentifier:@"clickFavoritesCell"];
     
@@ -109,7 +105,7 @@
 
 -(void)saveWithError:(NSError*)error
 {
-    if (![self.myManagedObjectContext save:&error])
+    if (![self.favManagedObjectContext save:&error])
     {
         NSLog(@"Failed because:%@",[error userInfo]);
     }
@@ -118,7 +114,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    favorite *favoriteRecord = [yelpFavorites objectAtIndex:[indexPath row]];
+    Favorites *favoriteRecord = [yelpFavorites objectAtIndex:[indexPath row]];
     
     [self deleteFavorite:favoriteRecord];
     
